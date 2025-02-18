@@ -1,0 +1,18 @@
+package xyz.aweirdwhale;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.text.Text;
+
+public class Controller {
+    @FXML private Text actionTarget;
+
+
+    public void handleConnectButton(ActionEvent actionEvent) {
+
+    }
+
+    public void handlePlayButton(ActionEvent actionEvent) {
+        
+    }
+}
