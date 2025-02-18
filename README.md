@@ -39,14 +39,16 @@ Malheureusement le launcher n'est pas terminé donc pas de version stable avant 
 
 
 </details>
+
 ---
 
 <details>
   <summary>🖥️ Windows</summary>
+
 1. Cloner le dépôt
 
-```git clone https://github.com/aweirdwhale/smp2i.git
-cd smp2i```
+`git clone` `https://github.com/aweirdwhale/smp2i.git
+cd smp2i`
 
 
 2. Compiler et générer le JAR
@@ -63,6 +65,7 @@ cd smp2i```
 </details>
 
 ---
+
 
 📌 Statut :
 
