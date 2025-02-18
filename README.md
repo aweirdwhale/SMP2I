@@ -1,3 +1,5 @@
+![banner](./file.png)
+
 ## 🎮 Launcher du SMP2I
 Le SMP2I est le serveur Minecraft survie moddé de la B004 par excellence ! Ce launcher, concocté par @qomoxy et moi même vous permettra de jouer sans vous soucier de l'installation, parfois ardue des mods nécessaires, et tournera en toute légèreté sur votre pc/mac/linux !
 
