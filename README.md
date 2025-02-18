@@ -19,20 +19,21 @@ Malheureusement le launcher n'est pas terminé donc pas de version stable avant 
 <details>
 <summary>🖥️ Mac/Linux</summary>
 
+1. Cloner le dépôt 
 `git clone https://github.com/aweirdwhale/smp2i.git`
 `cd smp2i`
 
-1. Donner les permissions d'exécution à Gradle (si nécessaire) :
+2. Donner les permissions d'exécution à Gradle (si nécessaire) :
 
 `chmod +x gradlew`
 
 
-1. Compiler et générer le JAR :
+3. Compiler et générer le JAR :
 
 `./gradlew build`
 
 
-1. Lancer l’application :
+4. Lancer l’application :
 
 `java -jar build/libs/smp2i.jar`
 
