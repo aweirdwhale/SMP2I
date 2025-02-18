@@ -13,6 +13,9 @@ public class Controller {
     }
 
     public void handlePlayButton(ActionEvent actionEvent) {
-        
+    }
+
+    public void handleSettingsButton(ActionEvent actionEvent) {
+
     }
 }

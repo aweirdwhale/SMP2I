@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<GridPane fx:controller="xyz.aweirdwhale.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
-            style="-fx-background-color: #222222;">
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xyz.aweirdwhale.Controller">
 
+    <!-- Image de fond -->
+    <ImageView fitHeight="300" fitWidth="400">
+        <image>
+            <Image preserveRatio="true" url="@../../backgrounds/background1.jpg" fx:id="bkg"/>
+        </image>
+    </ImageView>
 
-    <!-- Bouton de connexion -->
+    <!-- Bouton paramètres en haut à droite -->
+    <Button fx:id="settingsButton" onAction="#handleSettingsButton" styleClass="settings-button" text="⚙" />
 
-    <Button text="Connexion" onAction="#handleConnectButton" GridPane.columnIndex="0" GridPane.rowIndex="0" fx:id="loginbtn" />
+    <!-- Conteneur des champs -->
+    <VBox alignment="CENTER" spacing="10" styleClass="form-container">
+        <TextField fx:id="usernameField" promptText="Pseudo" />
+        <PasswordField fx:id="passwordField" promptText="Mot de passe" />
+    </VBox>
 
-    <!-- Bouton pour lancer le jeu -->
-    <Button text="Jouer" onAction="#handlePlayButton" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-
-
-
-</GridPane>
+</AnchorPane>
