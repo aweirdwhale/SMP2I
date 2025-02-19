@@ -8,9 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import xyz.aweirdwhale.utils.security.HashPwd;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import static xyz.aweirdwhale.utils.database.CommunicationWDatabase.request;
 
 
