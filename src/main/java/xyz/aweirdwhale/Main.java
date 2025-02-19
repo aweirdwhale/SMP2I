@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class Main  extends Application {
 
         scene.getRoot().setStyle("-fx-background-color: #222222;");
         stage.setResizable(false);
+        stage.getIcons().add(new Image("https://gimgs2.nohat.cc/thumb/f/640/minecraft-logo-icon-png-and-svg-download-minecraft-icon--m2i8A0A0A0b1i8i8.jpg"));
         stage.setTitle("SMP2I");
         stage.setScene(scene);
         stage.show();
