@@ -11,7 +11,7 @@ import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 
 /**
- * Regarder si l'utilisateur à bien tout les mods et ou la bonne version de Fabris
+ * Regarder si l'utilisateur à bien tout les mods et ou la bonne version de Fabric
  * SI OUi : Ne rien faire
  * SINON : installer ce qui lui manque (au max tout et au minimun mettre un jour un mod.
  * Info :

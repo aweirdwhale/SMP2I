@@ -4,22 +4,19 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xyz.aweirdwhale.Controller">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xyz.aweirdwhale.Controller">
 
-    <!-- Image de fond -->
-    <ImageView fitHeight="300" fitWidth="400">
-        <image>
-            <Image preserveRatio="true" url="@../../backgrounds/background1.jpg" fx:id="bkg"/>
-        </image>
+    <ImageView fitHeight="542.0" fitWidth="504.0" layoutX="107.0" layoutY="110.0" preserveRatio="true">
+        <Image url="@skin/skin_placeholder.png" />
+
     </ImageView>
 
-    <!-- Bouton paramètres en haut à droite -->
-    <Button fx:id="settingsButton" onAction="#handleSettingsButton" styleClass="settings-button" text="⚙" />
+    <TextField fx:id="usernameField" layoutX="791.0" layoutY="301.0" prefHeight="26.0" prefWidth="245.0" promptText="Nom d'utilisateur" />
 
-    <!-- Conteneur des champs -->
-    <VBox alignment="CENTER" spacing="10" styleClass="form-container">
-        <TextField fx:id="usernameField" promptText="Pseudo" />
-        <PasswordField fx:id="passwordField" promptText="Mot de passe" />
-    </VBox>
+    <PasswordField fx:id="passwordField" layoutX="791.0" layoutY="349.0" prefWidth="245.0" promptText="Mot de passe" />
 
+    <Button fx:id="loginButton" layoutX="791.0" layoutY="394.0" onAction="#handleLogin" text="ENTRER DANS LE JEU" />
+
+    <Button fx:id="changeSkinButton" layoutX="293.0" layoutY="601.0" onAction="#handleChangeSkin" text="CHANGER DE SKIN" />
+   <Button layoutX="29.0" layoutY="29.0" mnemonicParsing="false" text="Button" />
 </AnchorPane>

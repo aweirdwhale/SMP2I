@@ -1,0 +1,21 @@
+AnchorPane {
+    -fx-background-color: #1e1e1e;
+}
+
+TextField, PasswordField {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: gray;
+    -fx-border-color: #3d3d3d;
+}
+
+Button {
+    -fx-background-color: #333;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+Button:hover {
+    -fx-background-color: #444;
+}

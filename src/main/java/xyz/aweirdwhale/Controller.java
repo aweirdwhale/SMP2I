@@ -18,4 +18,10 @@ public class Controller {
     public void handleSettingsButton(ActionEvent actionEvent) {
 
     }
+
+    public void handleLogin(ActionEvent actionEvent) {
+    }
+
+    public void handleChangeSkin(ActionEvent actionEvent) {
+    }
 }
