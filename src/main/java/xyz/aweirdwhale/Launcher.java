@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Launcher {
 
-    public static void launchMinecraft(String gameDir, String assetsDir, String mainClass, List<String> jars) throws LaunchException {
+    public static void launchMinecraft(String gameDir, String assetsDir, String mainClass, List<String> jars, String serveur, String port) throws LaunchException {
         try {
             List<String> command = new ArrayList<>();
             command.add("java");
@@ -23,6 +23,11 @@ public class Launcher {
             command.add(gameDir);
             command.add("--assetsDir");
             command.add(assetsDir);
+            command.add("--serveur");
+            command.add(serveur);
+            command.add("--port");
+            command.add(port);
+            command.add("--serveur");
 
             ProcessBuilder builder = new ProcessBuilder(command);
             builder.inheritIO();
