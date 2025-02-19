@@ -30,32 +30,26 @@ public class Controller {
 
         // hash the password
         String hashed = HashPwd.hash(password);
+
         // 404 ???
-        String ip = "http://127.0.0.1:3000/login"; // HTTPS nécessite un certificat valide !
+        String ip = "http://127.0.0.1:3000/login"; // IP à modifier quand le serv sera en ligne
+
         System.out.println("Hashed password for " + username + " : " + hashed);
 
         // send the credentials to the server
         boolean res = request(username, hashed, ip);
-        System.out.println(res);
+        System.out.println(res); // true = on peut lancer, false = non
+        if (res) {
+            // TODO : Lancer le jeu avec mods + pseudo du joueur
+            // TODO : update l'UI pour que le joueur sache que ça marche
+        } else {
+            // TODO : update l'UI pour dire au joueur que ça marche pas
+        }
 
-
-
-
-    }
-
-    @FXML
-    public void handlePlayButton(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handleSettingsButton(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void handleLogin(ActionEvent actionEvent) {
     }
 
     @FXML
     public void handleChangeSkin(ActionEvent actionEvent) {
+        // TODO : Changer la skin du joueur (aucune idée de comment pour le moment)
     }
 }
