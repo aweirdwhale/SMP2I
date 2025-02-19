@@ -7,10 +7,9 @@ import java.io.OutputStream;
 import java.net.*;
 
 public class CommunicationWDatabase {
-    public static String request(String username, String hashed) {
+    public static String request(String username, String hashed, String ip) {
         // Construire le JSON correctement
         String requestBody = "{\"user\":\"" + username + "\",\"mdp\":\"" + hashed + "\"}";
-        String ip = "http://localhost:3000/login"; // HTTPS nécessite un certificat valide !
 
         System.out.println("Request : " + requestBody);
 

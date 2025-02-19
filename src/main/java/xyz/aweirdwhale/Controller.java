@@ -33,11 +33,12 @@ public class Controller {
 
         // hash the password
         String hashed = HashPwd.hash(password);
+        String ip = "http://localhost:3000/login"; // HTTPS nécessite un certificat valide !
         System.out.println("Hashed password for " + username + " : " + hashed);
 
         // send the credentials to the server
-        request(username, hashed);
-
+        String res = request(username, hashed, ip);
+        System.out.println(res);
 
 
 
