@@ -21,7 +21,7 @@
 
     <Button fx:id="changeSkinButton" layoutX="359.0" layoutY="542.0" onAction="#handleChangeSkin" text="CHANGER DE SKIN" />
 
-    <Button layoutX="29.0" layoutY="29.0" mnemonicParsing="false" text="">
+    <Button layoutX="29.0" layoutY="29.0" mnemonicParsing="false">
         <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" styleClass="settings">
                 <Image url="@images/icons/Gears.png" />

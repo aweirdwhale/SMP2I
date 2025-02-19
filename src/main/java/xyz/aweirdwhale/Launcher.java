@@ -9,11 +9,11 @@ import java.util.List;
 
 public class Launcher {
 
-    public static void launchMinecraft(String gameDir, String assetsDir, String mainClass, List<String> jars, String serveur, String port) throws LaunchException {
+    public static void launchMinecraft(String gameDir, String assetsDir, String mainClass, List<String> jars, String server, String port) throws LaunchException {
         try {
             List<String> command = new ArrayList<>();
             command.add("java");
-            command.add("-Xmx4G"); // ça serait bien de pouvoir le moduler car les mods ça consomme et les dernière vision.
+            command.add("-Xmx2G"); // ça serait bien de pouvoir le moduler car les mods ça consomme et les dernière vision.
             command.add("-cp");
 
             String classpath = String.join(File.pathSeparator, jars);
@@ -23,11 +23,10 @@ public class Launcher {
             command.add(gameDir);
             command.add("--assetsDir");
             command.add(assetsDir);
-            command.add("--serveur");
-            command.add(serveur);
+            command.add("--server");
+            command.add(server);
             command.add("--port");
             command.add(port);
-            command.add("--serveur");
 
             ProcessBuilder builder = new ProcessBuilder(command);
             builder.inheritIO();

@@ -2,12 +2,15 @@ package xyz.aweirdwhale;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import xyz.aweirdwhale.utils.security.HashPwd;
 
 public class Controller {
+    public Button loginButton;
+    public Button changeSkinButton;
     @FXML private Text actionTarget;
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
