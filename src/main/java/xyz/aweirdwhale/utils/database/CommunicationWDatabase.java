@@ -8,7 +8,7 @@ import java.net.*;
 import java.nio.charset.StandardCharsets;
 
 public class CommunicationWDatabase {
-    public static String request(String username, String hashed, String ip) {
+    public static boolean request(String username, String hashed, String ip) {
         // Construire le JSON correctement
         String requestBody = "{\"user\":\"" + username + "\",\"mdp\":\"" + hashed + "\"}";
 
@@ -19,19 +19,14 @@ public class CommunicationWDatabase {
 
             // Lire la réponse du serveur
             int responseCode = connection.getResponseCode();
-            System.out.println("Response Code: " + responseCode);
+            System.out.println("Response Code: " + responseCode); // Debug
 
-            // Lire le corps de la réponse
-            StringBuilder response = new StringBuilder();
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {
-                String responseLine;
-                while ((responseLine = br.readLine()) != null) {
-                    response.append(responseLine.trim());
-                }
+            // Réagir selon le code de réponse
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                return true;
+            } else {
+                return false;
             }
-
-            connection.disconnect();
-            return response.toString(); // Retourne la réponse complète
 
         } catch (MalformedURLException e) {
             throw new RuntimeException("URL mal formée : " + e.getMessage(), e);
@@ -49,9 +44,8 @@ public class CommunicationWDatabase {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         // Configuration de la requête
-        connection.setRequestMethod("POST");
+        connection.setRequestMethod("GET");
         connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Accept", "application/json");
         connection.setDoOutput(true);
 
         // Envoyer le JSON

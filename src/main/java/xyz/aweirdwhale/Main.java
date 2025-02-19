@@ -21,6 +21,8 @@ public class Main  extends Application {
         * fonctionalité -> controller.java
         */
 
+
+
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main.fxml")));
 
         Scene scene = new Scene(root, 1280, 720);
