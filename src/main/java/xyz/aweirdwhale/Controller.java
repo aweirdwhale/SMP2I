@@ -7,6 +7,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import xyz.aweirdwhale.utils.security.HashPwd;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+
 public class Controller {
     @FXML private Text actionTarget;
     @FXML private TextField usernameField;
@@ -26,7 +30,7 @@ public class Controller {
         String hashed = HashPwd.hash(password);
         System.out.println("Hashed password for " + username + " : " + hashed);
 
-        // send the credentials to the server
+
 
 
 
