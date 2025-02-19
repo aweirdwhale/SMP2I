@@ -11,6 +11,8 @@ import xyz.aweirdwhale.utils.security.HashPwd;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static xyz.aweirdwhale.utils.database.CommunicationWDatabase.request;
+
 
 public class Controller {
     public Button loginButton;
@@ -32,6 +34,9 @@ public class Controller {
         // hash the password
         String hashed = HashPwd.hash(password);
         System.out.println("Hashed password for " + username + " : " + hashed);
+
+        // send the credentials to the server
+        request(username, hashed);
 
 
 
