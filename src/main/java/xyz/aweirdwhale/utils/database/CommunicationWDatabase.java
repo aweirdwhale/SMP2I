@@ -13,7 +13,7 @@ public class CommunicationWDatabase {
 
     public static boolean request(String username, String hashed, String ip) throws CommunicationException {
 
-        // Construire le JSON correctement
+        // Construct the JSON request body
         String requestBody = "{\"user\":\"" + username + "\",\"mdp\":\"" + hashed + "\"}";
 
         System.out.println("Request : " + requestBody);
@@ -21,21 +21,26 @@ public class CommunicationWDatabase {
         try {
             HttpURLConnection connection = getHttpURLConnection(ip, requestBody);
 
-            // Lire la réponse du serveur
+            // Read the server response
             int responseCode = connection.getResponseCode();
             System.out.println("Response Code: " + responseCode); // Debug
 
-            // Réagir selon le code de réponse
+            // Handle the response code
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 return true;
-            } else {
+            } else if (responseCode == HttpURLConnection.HTTP_NOT_FOUND) {
+                System.out.println("404 Not Found");
+                return false;
+            } else if (responseCode == HttpURLConnection.HTTP_FORBIDDEN) {
+                System.out.println("Mauvais identifiants");
                 return false;
             }
+            return false;
 
         } catch (MalformedURLException e) {
-            throw new CommunicationException("URL mal formée : " + e.getMessage(), e);
+            throw new CommunicationException("Malformed URL: " + e.getMessage(), e);
         } catch (IOException e) {
-            throw new CommunicationException("Erreur lors de la connexion : " + e.getMessage(), e);
+            throw new CommunicationException("Connection error: " + e.getMessage(), e);
         } catch (URISyntaxException e) {
             throw new CommunicationException(e);
         }
@@ -45,14 +50,16 @@ public class CommunicationWDatabase {
         URI uri = new URI(ip);
         URL url = uri.toURL();
 
+        System.out.println("URL : " + url); // URL OK SERVER OK
+
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-        // Configuration de la requête
-        connection.setRequestMethod("GET");
+        // Configure the request
+        connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setDoOutput(true);
 
-        // Envoyer le JSON
+        // Send the JSON
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = requestBody.getBytes(StandardCharsets.UTF_8);
             os.write(input, 0, input.length);
