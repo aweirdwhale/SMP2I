@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 
 public class CommunicationWDatabase {
     public static String request(String username, String hashed, String ip) {
@@ -22,7 +23,7 @@ public class CommunicationWDatabase {
 
             // Lire le corps de la réponse
             StringBuilder response = new StringBuilder();
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"))) {
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {
                 String responseLine;
                 while ((responseLine = br.readLine()) != null) {
                     response.append(responseLine.trim());
@@ -55,7 +56,7 @@ public class CommunicationWDatabase {
 
         // Envoyer le JSON
         try (OutputStream os = connection.getOutputStream()) {
-            byte[] input = requestBody.getBytes("utf-8");
+            byte[] input = requestBody.getBytes(StandardCharsets.UTF_8);
             os.write(input, 0, input.length);
         }
         return connection;
