@@ -1,5 +1,7 @@
 package xyz.aweirdwhale.utils.database;
 
+import xyz.aweirdwhale.utils.exceptions.CommunicationException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,7 +10,7 @@ import java.net.*;
 import java.nio.charset.StandardCharsets;
 
 public class CommunicationWDatabase {
-    public static String request(String username, String hashed, String ip) {
+    public static String request(String username, String hashed, String ip) throws CommunicationException {
         // Construire le JSON correctement
         String requestBody = "{\"user\":\"" + username + "\",\"mdp\":\"" + hashed + "\"}";
 
@@ -34,11 +36,11 @@ public class CommunicationWDatabase {
             return response.toString(); // Retourne la réponse complète
 
         } catch (MalformedURLException e) {
-            throw new RuntimeException("URL mal formée : " + e.getMessage(), e);
+            throw new CommunicationException("URL mal formée : " + e.getMessage(), e);
         } catch (IOException e) {
-            throw new RuntimeException("Erreur lors de la connexion : " + e.getMessage(), e);
+            throw new CommunicationException("Erreur lors de la connexion : " + e.getMessage(), e);
         } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
+            throw new CommunicationException(e);
         }
     }
 
