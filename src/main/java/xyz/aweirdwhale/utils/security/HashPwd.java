@@ -1,7 +1,5 @@
 package xyz.aweirdwhale.utils.security;
 
-import xyz.aweirdwhale.utils.exceptions.DownloadException;
-
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
