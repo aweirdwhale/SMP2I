@@ -2,9 +2,7 @@ package xyz.aweirdwhale.utils.database;
 
 import xyz.aweirdwhale.utils.exceptions.CommunicationException;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
