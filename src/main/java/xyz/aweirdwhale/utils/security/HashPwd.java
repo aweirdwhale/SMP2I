@@ -5,6 +5,9 @@ import java.security.MessageDigest;
 
 
 public class HashPwd {
+
+
+
     public static String hash(String password)  throws xyz.aweirdwhale.utils.exceptions.SecurityException {
         // Hash the password using SHA-256
         try {
