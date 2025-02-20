@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import xyz.aweirdwhale.Launcher;
+import xyz.aweirdwhale.download.Downloader;
 import xyz.aweirdwhale.utils.exceptions.CommunicationException;
 import xyz.aweirdwhale.utils.security.HashPwd;
 
@@ -60,11 +62,10 @@ public class MainController {
         }
         System.out.println(res); // true = on peut lancer, false = non
         if (res) {
-            // TODO : Lancer le jeu avec mods + pseudo du joueur
-            
             setInfoLabel("Connexion ...", "green");
+            // TODO : Lancer le jeu avec mods + pseudo du joueur
+            // Server : localhost:25565
         } else {
-            // TODO : update l'UI pour dire au joueur que ça marche pas
             setInfoLabel("Attention ! Mauvais identifiants.", "red");
         }
 
