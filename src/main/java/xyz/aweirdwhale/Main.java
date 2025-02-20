@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class Main  extends Application {
         Scene scene = new Scene(root, 1280, 720);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles/main.css")).toExternalForm());
 
-        scene.getRoot().setStyle("-fx-background-color: #222222;");
+        scene.getRoot().setStyle("-fx-background-color: #222222; -fx-label-color: #ff0000;");
         stage.setResizable(false);
         stage.getIcons().add(new Image("xyz/aweirdwhale/images/icons/icon.png")); // fixed icon
         stage.setTitle("SMP2I");
