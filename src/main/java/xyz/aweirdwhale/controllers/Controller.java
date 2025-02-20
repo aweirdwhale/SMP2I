@@ -1,4 +1,4 @@
-package xyz.aweirdwhale;
+package xyz.aweirdwhale.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
