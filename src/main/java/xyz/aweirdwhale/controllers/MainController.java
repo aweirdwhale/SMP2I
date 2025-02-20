@@ -6,14 +6,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import xyz.aweirdwhale.Launcher;
 import xyz.aweirdwhale.download.Downloader;
 import xyz.aweirdwhale.utils.exceptions.CommunicationException;
+import xyz.aweirdwhale.utils.exceptions.DownloadException;
+import xyz.aweirdwhale.utils.exceptions.LaunchException;
 import xyz.aweirdwhale.utils.security.HashPwd;
 
-import static xyz.aweirdwhale.utils.database.CommunicationWDatabase.request;
+import java.util.Arrays;
+import java.util.List;
 
+import static xyz.aweirdwhale.utils.database.CommunicationWDatabase.request;
 
 public class MainController {
     public Button loginButton;
@@ -22,13 +25,20 @@ public class MainController {
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
 
+    private static final String[] MOD_URLS = {
+            "https://example.com/mods/lithium.jar",
+            "https://example.com/mods/sodium.jar",
+            "https://example.com/mods/phosphor.jar"
+    };
+
+    private static final String MINECRAFT_URL = "https://example.com/minecraft/minecraft_1.21.4.jar";
+
     public void setInfoLabel(String info, String color){
         loginInfoLabel.setText(info);
         loginInfoLabel.setStyle("-fx-text-fill: " + color + ";");
     }
 
     public String usernamePostProcessing(String username){
-        // Supprimer les espaces
         return username.trim();
     }
 
@@ -44,31 +54,52 @@ public class MainController {
             return;
         }
 
-        // hash the password
         String hashed = HashPwd.hash(password);
-
-        // 404 ???
-        String ip = "http://127.0.0.1:3000/login"; // IP à modifier quand le serv sera en ligne
+        String ip = "http://ec2-13-60-48-128.eu-north-1.compute.amazonaws.com:3000/login";
 
         System.out.println("Hashed password for " + username + " : " + hashed);
 
-        // send the credentials to the server
-        boolean res = false; // initialiser la réponse
+        boolean res = false;
         try {
             res = request(username, hashed, ip);
         } catch (CommunicationException e) {
             setInfoLabel("⚠ Erreur de communication avec le serveur.", "red");
             throw new CommunicationException(e);
         }
-        System.out.println(res); // true = on peut lancer, false = non
+        System.out.println(res);
         if (res) {
             setInfoLabel("Connexion ...", "green");
-            // TODO : Lancer le jeu avec mods + pseudo du joueur
-            // Server : localhost:25565
+
+            String homeDir = System.getProperty("user.home");
+            String gameDirectory = homeDir + "/.smp2i";
+            String modsDirectory = gameDirectory + "/mods";
+            String assetsDirectory = gameDirectory + "/assets";
+
+            try {
+                Downloader.downloadMod(MOD_URLS, modsDirectory);
+                Downloader.installMinecraftandMod(MINECRAFT_URL, gameDirectory);
+            } catch (DownloadException e) {
+                setInfoLabel("⚠ Erreur lors du téléchargement des fichiers.", "red");
+                e.printStackTrace();
+                return;
+            }
+
+            List<String> jars = Arrays.asList(
+                    gameDirectory + "/minecraft_1.21.4.jar",
+                    modsDirectory + "/lithium.jar",
+                    modsDirectory + "/sodium.jar",
+                    modsDirectory + "/phosphor.jar"
+            );
+
+            try {
+                Launcher.launchMinecraft(gameDirectory, assetsDirectory, "net.minecraft.client.main.Main", jars, "127.0.0.1", "25565", username);
+            } catch (LaunchException e) {
+                setInfoLabel("⚠ Erreur lors du lancement du jeu.", "red");
+                e.printStackTrace();
+            }
         } else {
             setInfoLabel("Attention ! Mauvais identifiants.", "red");
         }
-
     }
 
     @FXML

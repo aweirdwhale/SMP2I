@@ -21,6 +21,10 @@ public class CommunicationWDatabase {
         try {
             HttpURLConnection connection = getHttpURLConnection(ip, requestBody);
 
+            // Set connection and read timeouts
+            connection.setConnectTimeout(10000); // 10 seconds
+            connection.setReadTimeout(10000); // 10 seconds
+
             // Read the server response
             int responseCode = connection.getResponseCode();
             System.out.println("Response Code: " + responseCode); // Debug
@@ -39,6 +43,8 @@ public class CommunicationWDatabase {
 
         } catch (MalformedURLException e) {
             throw new CommunicationException("Malformed URL: " + e.getMessage(), e);
+        } catch (SocketTimeoutException e) {
+            throw new CommunicationException("Connection timed out: " + e.getMessage(), e);
         } catch (IOException e) {
             throw new CommunicationException("Connection error: " + e.getMessage(), e);
         } catch (URISyntaxException e) {
