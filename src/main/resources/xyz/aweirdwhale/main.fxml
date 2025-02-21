@@ -31,7 +31,7 @@
     </Button>
 
         <!-- Info label -->
-      <Label fx:id="loginInfoLabel" layoutX="761.0" layoutY="388.0" text="" />
+      <Label fx:id="loginInfoLabel" layoutX="761.0" layoutY="388.0"/>
 
 </AnchorPane>
         </StackPane>

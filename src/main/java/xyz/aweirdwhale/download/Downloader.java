@@ -33,10 +33,13 @@ public class Downloader {
         try {
             URI uri = URI.create(fileUrl);
             URL url = uri.toURL();
+            System.out.println("url : " + url);
+
             try (ReadableByteChannel channel = Channels.newChannel(url.openStream());
                 FileOutputStream fos = new FileOutputStream(SavePath)) {
                 fos.getChannel().transferFrom(channel, 0, Long.MAX_VALUE);
             }
+            System.out.println("dlFile OK");
 
 
     } catch (IOException e) {
@@ -91,9 +94,11 @@ public class Downloader {
 
         try {
             downloadFile(MinecraftUrl, savePath);
-
+            System.out.println("installed");
 
         } catch (DownloadException e) {
+            System.out.println("Not installed");
+
             throw new DownloadException("Erreur lors du téléchargement de Minecraft 1.21.4 : " + e.getMessage());
         }
 

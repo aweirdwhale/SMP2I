@@ -6,15 +6,26 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 import xyz.aweirdwhale.Launcher;
 import xyz.aweirdwhale.download.Downloader;
+
 import xyz.aweirdwhale.utils.exceptions.CommunicationException;
 import xyz.aweirdwhale.utils.exceptions.DownloadException;
 import xyz.aweirdwhale.utils.exceptions.LaunchException;
 import xyz.aweirdwhale.utils.security.HashPwd;
 
 import java.util.Arrays;
+
 import java.util.List;
+
+import java.util.Collections;
+import java.util.List;
+
+import static xyz.aweirdwhale.Launcher.launchMinecraft;
+import static xyz.aweirdwhale.download.Downloader.installMinecraftandMod;
+import static xyz.aweirdwhale.utils.database.CommunicationWDatabase.request;
+
 
 import static xyz.aweirdwhale.utils.database.CommunicationWDatabase.request;
 
@@ -25,13 +36,15 @@ public class MainController {
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
 
+    public static final String server = "http://ec2-13-60-48-128.eu-north-1.compute.amazonaws.com:6969/";
+
+    // TODO GET URLS FROM SERVER
     private static final String[] MOD_URLS = {
-            "https://example.com/mods/lithium.jar",
-            "https://example.com/mods/sodium.jar",
-            "https://example.com/mods/phosphor.jar"
+            "https://cdn.modrinth.com/data/PtjYWJkn/versions/f4TfteNb/sodium-extra-fabric-0.6.1%2Bmc1.21.4.jar"
     };
 
-    private static final String MINECRAFT_URL = "https://example.com/minecraft/minecraft_1.21.4.jar";
+    // TODO UPLOAD MINECRAFT TO SERVER + DL IT
+    private static final String MINECRAFT_URL = server + "download";
 
     public void setInfoLabel(String info, String color){
         loginInfoLabel.setText(info);
@@ -43,7 +56,7 @@ public class MainController {
     }
 
     @FXML
-    public void handleConnection(ActionEvent actionEvent) {
+    public void handleConnection(ActionEvent actionEvent) throws DownloadException, LaunchException {
         String username = usernameField.getText();
         username = usernamePostProcessing(username);
         String password = passwordField.getText();
@@ -55,11 +68,14 @@ public class MainController {
         }
 
         String hashed = HashPwd.hash(password);
-        String ip = "http://ec2-13-60-48-128.eu-north-1.compute.amazonaws.com:3000/login";
+        String ip = server + "login";
+
+        //List<String> mods = Arrays.asList("https://cdn.modrinth.com/data/PtjYWJkn/versions/f4TfteNb/sodium-extra-fabric-0.6.1%2Bmc1.21.4.jar", "https://cdn.modrinth.com/data/gvQqBUqZ/versions/kLc5Oxr4/lithium-fabric-0.14.8%2Bmc1.21.4.jar");
 
         System.out.println("Hashed password for " + username + " : " + hashed);
 
-        boolean res = false;
+        // send the credentials to the server
+        boolean res = false; // initialiser la réponse, pour info c'est la valeur de base.
         try {
             res = request(username, hashed, ip);
         } catch (CommunicationException e) {
@@ -76,9 +92,16 @@ public class MainController {
             String assetsDirectory = gameDirectory + "/assets";
 
             try {
+                System.out.println("téléchargement des fichiers.");
+
                 Downloader.downloadMod(MOD_URLS, modsDirectory);
+                System.out.println("Installation du jeu.");
+
                 Downloader.installMinecraftandMod(MINECRAFT_URL, gameDirectory);
+                System.out.println("OK.");
+
             } catch (DownloadException e) {
+                System.out.println("téléchargement des fichiers. ERR");
                 setInfoLabel("⚠ Erreur lors du téléchargement des fichiers.", "red");
                 e.printStackTrace();
                 return;
@@ -92,11 +115,17 @@ public class MainController {
             );
 
             try {
-                Launcher.launchMinecraft(gameDirectory, assetsDirectory, "net.minecraft.client.main.Main", jars, "127.0.0.1", "25565", username);
+                System.out.println("lancement du jeu.");
+
+                Launcher.launchMinecraft(gameDirectory, assetsDirectory, "net.minecraft.client.main.Main", jars, "13.60.48.128", "25565", username);
             } catch (LaunchException e) {
+                System.out.println("ERR : lancement du jeu");
+
                 setInfoLabel("⚠ Erreur lors du lancement du jeu.", "red");
                 e.printStackTrace();
             }
+            installMinecraftandMod("Minecraft", "");
+
         } else {
             setInfoLabel("Attention ! Mauvais identifiants.", "red");
         }

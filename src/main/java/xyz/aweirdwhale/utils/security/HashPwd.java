@@ -3,8 +3,12 @@ package xyz.aweirdwhale.utils.security;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
+
 public class HashPwd {
-    public static String hash(String password)  throws SecurityException {
+
+
+
+    public static String hash(String password)  throws xyz.aweirdwhale.utils.exceptions.SecurityException {
         // Hash the password using SHA-256
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
