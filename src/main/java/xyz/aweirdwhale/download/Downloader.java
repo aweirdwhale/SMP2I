@@ -89,7 +89,7 @@ public class Downloader {
             modsDirFile.mkdirs();
         }
 
-        String fileName = "minecraft_1.12.4_Fabric_SMP004.jar";
+        String fileName = "minecraft_1.21.4_Fabric_SMP004.jar";
         String savePath = modsDirFile.getAbsolutePath() + File.separator + fileName;
 
         try {

@@ -9,6 +9,19 @@ import java.util.List;
 
 public class Launcher {
 
+    /**
+     * Lance Minecraft avec les mods.
+     *
+     * @param gameDir directory of minecraft in user pc
+     * @param assetsDir directorie of assets
+     * @param mainClass the mainclass of the game to launch
+     * @param jars all mods to get
+     * @param server the attribute of the serveur
+     * @param port the public port of the serveur or ip
+     * @param pseudo the pseudo of the player
+     * @throws LaunchException erreur of launch
+     */
+
     public static void launchMinecraft(String gameDir, String assetsDir, String mainClass, List<String> jars, String server, String port, String pseudo) throws LaunchException {
         try {
             List<String> command = new ArrayList<>();
@@ -32,7 +45,7 @@ public class Launcher {
 
             ProcessBuilder builder = new ProcessBuilder(command);
             builder.inheritIO();
-            Process process = builder.start();
+            Process process = builder.start(); // you need to keep it to use it after call im
         } catch (IOException e) {
             throw new LaunchException("Erreur lors du lancement du jeu : " + e.getMessage());
         }
