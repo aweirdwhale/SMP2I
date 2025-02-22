@@ -19,6 +19,7 @@ public class Launcher {
             String classpath = String.join(File.pathSeparator, jars);
             command.add(classpath);
             command.add(mainClass);
+
             command.add("--gameDir");
             command.add(gameDir);
             command.add("--assetsDir");
@@ -31,6 +32,8 @@ public class Launcher {
             command.add(pseudo);
 
             ProcessBuilder builder = new ProcessBuilder(command);
+            command.add(classpath);
+            command.add(mainClass);
             builder.inheritIO();
             Process process = builder.start();
         } catch (IOException e) {

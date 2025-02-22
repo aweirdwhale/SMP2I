@@ -19,15 +19,8 @@ import java.util.Arrays;
 
 import java.util.List;
 
-import java.util.Collections;
-import java.util.List;
-
-import static xyz.aweirdwhale.Launcher.launchMinecraft;
 import static xyz.aweirdwhale.download.Downloader.installMinecraftandMod;
-import static xyz.aweirdwhale.utils.database.CommunicationWDatabase.request;
-
-
-import static xyz.aweirdwhale.utils.database.CommunicationWDatabase.request;
+import static xyz.aweirdwhale.utils.database.CommunicationWDatabase.loginRequest;
 
 public class MainController {
     public Button loginButton;
@@ -44,7 +37,7 @@ public class MainController {
     };
 
     // TODO UPLOAD MINECRAFT TO SERVER + DL IT
-    private static final String MINECRAFT_URL = server + "download";
+    private static final String MINECRAFT_URL = server + "public/fabric-loader-0.16.10-1.21.4.jar";
 
     public void setInfoLabel(String info, String color){
         loginInfoLabel.setText(info);
@@ -56,7 +49,7 @@ public class MainController {
     }
 
     @FXML
-    public void handleConnection(ActionEvent actionEvent) throws DownloadException, LaunchException {
+    public void handleConnection(ActionEvent actionEvent) {
         String username = usernameField.getText();
         username = usernamePostProcessing(username);
         String password = passwordField.getText();
@@ -70,17 +63,15 @@ public class MainController {
         String hashed = HashPwd.hash(password);
         String ip = server + "login";
 
-        //List<String> mods = Arrays.asList("https://cdn.modrinth.com/data/PtjYWJkn/versions/f4TfteNb/sodium-extra-fabric-0.6.1%2Bmc1.21.4.jar", "https://cdn.modrinth.com/data/gvQqBUqZ/versions/kLc5Oxr4/lithium-fabric-0.14.8%2Bmc1.21.4.jar");
-
         System.out.println("Hashed password for " + username + " : " + hashed);
 
-        // send the credentials to the server
-        boolean res = false; // initialiser la réponse, pour info c'est la valeur de base.
+        boolean res = false;
         try {
-            res = request(username, hashed, ip);
+            res = loginRequest(username, hashed, ip);
         } catch (CommunicationException e) {
             setInfoLabel("⚠ Erreur de communication avec le serveur.", "red");
-            throw new CommunicationException(e);
+            e.printStackTrace();
+            return;
         }
         System.out.println(res);
         if (res) {
@@ -92,16 +83,9 @@ public class MainController {
             String assetsDirectory = gameDirectory + "/assets";
 
             try {
-                System.out.println("téléchargement des fichiers.");
-
                 Downloader.downloadMod(MOD_URLS, modsDirectory);
-                System.out.println("Installation du jeu.");
-
                 Downloader.installMinecraftandMod(MINECRAFT_URL, gameDirectory);
-                System.out.println("OK.");
-
             } catch (DownloadException e) {
-                System.out.println("téléchargement des fichiers. ERR");
                 setInfoLabel("⚠ Erreur lors du téléchargement des fichiers.", "red");
                 e.printStackTrace();
                 return;
@@ -109,23 +93,15 @@ public class MainController {
 
             List<String> jars = Arrays.asList(
                     gameDirectory + "/minecraft_1.21.4.jar",
-                    modsDirectory + "/lithium.jar",
-                    modsDirectory + "/sodium.jar",
-                    modsDirectory + "/phosphor.jar"
+                    modsDirectory + "/sodium-extra-fabric-0.6.1%2Bmc1.21.4.jar"
             );
 
             try {
-                System.out.println("lancement du jeu.");
-
-                Launcher.launchMinecraft(gameDirectory, assetsDirectory, "net.minecraft.client.main.Main", jars, "13.60.48.128", "25565", username);
+                Launcher.launchMinecraft(gameDirectory, assetsDirectory, "net.minecraft.client.main.Main", jars, "localhost", "25565", username);
             } catch (LaunchException e) {
-                System.out.println("ERR : lancement du jeu");
-
                 setInfoLabel("⚠ Erreur lors du lancement du jeu.", "red");
                 e.printStackTrace();
             }
-            installMinecraftandMod("Minecraft", "");
-
         } else {
             setInfoLabel("Attention ! Mauvais identifiants.", "red");
         }

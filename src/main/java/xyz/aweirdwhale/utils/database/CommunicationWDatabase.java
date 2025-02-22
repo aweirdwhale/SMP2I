@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 
 public class CommunicationWDatabase {
 
-    public static boolean request(String username, String hashed, String ip) throws CommunicationException {
+    public static boolean loginRequest(String username, String hashed, String ip) throws CommunicationException {
 
         // Construct the JSON request body
         String requestBody = "{\"user\":\"" + username + "\",\"mdp\":\"" + hashed + "\"}";

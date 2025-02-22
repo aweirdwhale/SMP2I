@@ -84,6 +84,7 @@ public class Downloader {
      * @throws DownloadException En cas d'erreur lors du téléchargement.
      */
     public static void installMinecraftandMod(String MinecraftUrl, String installDir) throws DownloadException {
+        System.out.println("AAAAAA");
         File modsDirFile = new File(installDir);
         if (!modsDirFile.exists()) {
             modsDirFile.mkdirs();
