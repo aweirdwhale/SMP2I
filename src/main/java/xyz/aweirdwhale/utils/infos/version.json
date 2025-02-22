@@ -1,0 +1,12 @@
+{
+    "version": "1.0.0",
+    "build": 1,
+    "buildDate": "2021-08-01",
+    "channel": "stable",
+    "changelog": [
+        "SMP2I SAISON 2",
+        "Initial release",
+        "Can launch Minecraft with custom nickname",
+        "Added some mods"
+    ]
+}
