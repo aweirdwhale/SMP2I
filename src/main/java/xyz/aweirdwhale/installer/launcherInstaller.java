@@ -3,6 +3,12 @@ package xyz.aweirdwhale.installer;
 import java.io.File;
 
 public class launcherInstaller {
+
+    /**
+     * Lance l'installation de Minecraft et des mods avec l'ensemble des paramètre nécessaires.
+     *
+     */
+
     public static void main(String[] args) {
         // Define the directories
         String homeDir = System.getProperty("user.home");
