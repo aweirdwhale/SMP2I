@@ -1,6 +1,5 @@
 package xyz.aweirdwhale.utils.database;
 
-import xyz.aweirdwhale.utils.exceptions.CommunicationException;
 import xyz.aweirdwhale.utils.exceptions.DatabaseException;
 
 import java.io.IOException;
@@ -20,8 +19,6 @@ public class requestDatabase {
     * connection.getResponseCode();
     *
     */
-
-    private static Integer DELAY = 10000; // Maximum connection delay in ms
 
 
     /**
@@ -45,6 +42,8 @@ public class requestDatabase {
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setDoOutput(true);
 
+        // Maximum connection delay in ms
+        int DELAY = 10000;
         connection.setConnectTimeout(DELAY);
         connection.setReadTimeout(DELAY);
 

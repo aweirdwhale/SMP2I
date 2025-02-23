@@ -10,15 +10,7 @@ public class setupEnvironment {
      * Creates the root directory of the game and its subdirectories
      * **/
     public static String createGameDir() {
-        String home = System.getProperty("user.home"); // best to use : String path = getGameDir(); (static and less complexe)
-        String os = System.getProperty("os.name").toLowerCase();
-        String path;
-
-        if (os.contains("win")) {
-            path = System.getenv("APPDATA") + "/.smp2ix";
-        } else {
-            path = home + "/.smp2ix";
-        }
+        String path = getGameDir();
 
         createSubDirectory(path, "mods");
         createSubDirectory(path, "assets");

@@ -9,21 +9,10 @@ import javafx.scene.control.TextField;
 
 import xyz.aweirdwhale.Launcher;
 
-import xyz.aweirdwhale.installer.ClassPathGenerator;
-import xyz.aweirdwhale.installer.Downloader;
-import xyz.aweirdwhale.installer.setupEnvironment;
 import xyz.aweirdwhale.utils.exceptions.CommunicationException;
-import xyz.aweirdwhale.utils.exceptions.DownloadException;
-import xyz.aweirdwhale.utils.exceptions.LaunchException;
+import xyz.aweirdwhale.utils.exceptions.LoginException;
 import xyz.aweirdwhale.utils.log.logger;
 import xyz.aweirdwhale.utils.security.HashPwd;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.Arrays;
-
-import java.util.List;
 
 import static xyz.aweirdwhale.utils.security.Login.login;
 
@@ -86,7 +75,7 @@ public class MainController {
 
 
 
-        int res = -1; // init la réponse (http status code)
+        int res; // init la réponse (http status code)
         try {
             res = login(username, hashed, SERVER);
         } catch (CommunicationException e) {
@@ -94,7 +83,7 @@ public class MainController {
             logger.logError("⚠ Communication error with server : " + e.getMessage(), e);
             e.printStackTrace(); // not robust loggin
             return;
-        } catch (IOException | URISyntaxException e) {
+        } catch (LoginException e) {
             throw new RuntimeException(e);
         }
 

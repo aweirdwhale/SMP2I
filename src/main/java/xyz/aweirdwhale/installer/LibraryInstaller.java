@@ -126,7 +126,6 @@ public class LibraryInstaller {
 
     /**
      *
-     * @param versionsMapStr
      * @return différente version de la Map.
      */
     private Map<String, String> parseVersionsMap(String versionsMapStr) {
@@ -144,7 +143,7 @@ public class LibraryInstaller {
     private void removeOldVersions(Map<String, String> versionsMap, String path) {
         File librariesDir = new File(path+LIBRARIES_DIR);
         if (librariesDir.exists() && librariesDir.isDirectory()) {
-            for (File file : librariesDir.listFiles()) {
+            for (File file : Objects.requireNonNull(librariesDir.listFiles())) {
                 if (file.isFile()) {
                     Matcher matcher = Pattern.compile("(.+)-(\\d+\\.\\d+\\.\\d+).*\\.jar").matcher(file.getName());
                     if (matcher.matches()) {

@@ -5,21 +5,21 @@ package xyz.aweirdwhale.utils.exceptions;
  */
 
 
-public class AuthException extends Exception {
+public class LoginException extends Exception {
 
-    public AuthException() {
+    public LoginException() {
         super();
     }
 
-    public AuthException(String message) {
+    public LoginException(String message) {
         super(message);
     }
 
-    public AuthException(Throwable cause) {
+    public LoginException(Throwable cause) {
         super(cause);
     }
 
-    public AuthException(Throwable cause, String message) {
+    public LoginException(Throwable cause, String message) {
         super(message, cause);
     }
 

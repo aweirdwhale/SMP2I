@@ -1,7 +1,6 @@
 package xyz.aweirdwhale.installer;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 import xyz.aweirdwhale.utils.exceptions.DownloadException;
 import xyz.aweirdwhale.utils.log.logger;
 
@@ -18,8 +17,8 @@ public class Downloader {
      * in gamedir/versions/
      * **/
 
-    private static String SERVER = "http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com";
-    private static String PORT = ":6969";
+    private static final String SERVER = "http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com";
+    private static final String PORT = ":6969";
     private static final String FABRIC_URL = SERVER + PORT + "/public/fabric-loader/fabric.jar";
     private static final String FABRIC_JSON_URL = SERVER + PORT + "/public/fabric-loader/fabric.json";
     private static final String MINECRAFT_URL = SERVER + PORT + "/public/1.21.4/1.21.4.jar";
@@ -71,7 +70,7 @@ public class Downloader {
 
         try {
 
-            URL url = new URL(MODS_JSON_URL); //pls where up to  20 not 19 use URI
+            URL url = new URL(MODS_JSON_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
