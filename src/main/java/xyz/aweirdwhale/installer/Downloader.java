@@ -105,28 +105,32 @@ public class Downloader {
      * Télécharge un fichier depuis l'URL spécifiée et le sauvegarde dans le chemin donné.
      *
      * @param fileUrl  L'URL du fichier à télécharger.
-     * @param SavePath Le chemin où le fichier sera sauvegardé.
+     * @param savePath Le chemin où le fichier sera sauvegardé.
      * @throws DownloadException En cas d'erreur de téléchargement.
      */
-    public static void downloadFile(String fileUrl, String SavePath) throws DownloadException {
+    public static void downloadFile(String fileUrl, String savePath) throws DownloadException {
+        File file = new File(savePath);
+        if (file.exists()) {
+            logger.logInfo("✔ File already exists: " + savePath + ", skipping download.");
+            return;
+        }
+
         try {
             URI uri = URI.create(fileUrl);
             URL url = uri.toURL();
 
-            logger.logInfo("[-] Downloading " + fileUrl + " to " + SavePath);
+            logger.logInfo("[-] Downloading " + fileUrl + " to " + savePath);
 
             try (ReadableByteChannel channel = Channels.newChannel(url.openStream());
-                 FileOutputStream fos = new FileOutputStream(SavePath)) {
+                 FileOutputStream fos = new FileOutputStream(savePath)) {
                 fos.getChannel().transferFrom(channel, 0, Long.MAX_VALUE);
             }
 
-            logger.logInfo("[x] Downloaded " + fileUrl + " to " + SavePath);
-
+            logger.logInfo("[x] Downloaded " + fileUrl + " to " + savePath);
 
         } catch (IOException e) {
             logger.logError("Ran into an issue while downloading " + fileUrl + " : " + e.getMessage(), e);
             throw new DownloadException("Erreur lors du téléchargement de " + fileUrl + " : " + e.getMessage());
-
         }
     }
 }
