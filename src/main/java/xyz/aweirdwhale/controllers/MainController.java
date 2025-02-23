@@ -20,6 +20,7 @@ public class MainController {
 
     public Button loginButton;
     public Button changeSkinButton;
+    public Button settings;
 
     @FXML private Label loginInfoLabel;
     @FXML private TextField usernameField;
@@ -104,5 +105,9 @@ public class MainController {
     @FXML
     public void handleChangeSkin(ActionEvent actionEvent) {
         // TODO : Changer la skin du joueur (aucune idée de comment pour le moment)
+    }
+
+    public void handlesettings(ActionEvent actionEvent) {
+
     }
 }
