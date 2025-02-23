@@ -18,15 +18,14 @@ public class Login {
 
     private static String PORT = "6969";
     private static String TARGET = "/login";
-    private static String SERVER = "http://ec2-13-60-48-128.eu-north-1.compute.amazonaws.com:"+PORT+TARGET;
 
     private static String METHOD = "POST";
 
-    public static int login(String username, String hashed) throws IOException, URISyntaxException {
+    public static int login(String username, String hashed, String server) throws IOException, URISyntaxException {
         String request_body = "{\"user\":\"" + username + "\",\"mdp\":\"" + hashed + "\"}";
 
         try {
-            HttpURLConnection connection = getHttpURLConnection(SERVER, request_body, METHOD);
+            HttpURLConnection connection = getHttpURLConnection(server+PORT+TARGET, request_body, METHOD);
             int responseCode = connection.getResponseCode();
 
             return responseCode;
