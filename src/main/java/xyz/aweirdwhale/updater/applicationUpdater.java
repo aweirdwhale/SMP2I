@@ -28,7 +28,7 @@ public class applicationUpdater {
 
     private String clientVersion;
 
-    public static String getClientVersion() {
+    public static String getClientVersion() throws UpdaterException {
         // get the client version from json
         try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/xyz/aweirdwhale/utils/infos/version.json"))) {
             StringBuilder jsonContent = new StringBuilder();
@@ -39,8 +39,7 @@ public class applicationUpdater {
             JSONObject jsonObject = new JSONObject(jsonContent.toString());
             return jsonObject.getString("version");
         } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+            throw new UpdaterException(e.getMessage());
         }
     }
 

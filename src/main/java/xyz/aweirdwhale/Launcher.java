@@ -31,7 +31,7 @@ public class Launcher {
      *   --accessToken "Q&O Les Goats"
      * **/
 
-    public static void setUp(String username) {
+    public static void setUp(String username) throws LaunchException, DownloadException {
         try {
 
             String dir = setupEnvironment.getGameDir();
@@ -75,7 +75,7 @@ public class Launcher {
 
 
         } catch (DownloadException | LaunchException e) {
-            throw new RuntimeException(e);
+            throw new LaunchException(e.getMessage());
         }
     }
 

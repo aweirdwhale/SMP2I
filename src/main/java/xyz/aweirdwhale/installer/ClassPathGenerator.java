@@ -1,5 +1,7 @@
 package xyz.aweirdwhale.installer;
 
+import xyz.aweirdwhale.utils.exceptions.PathException;
+
 import java.nio.file.Path;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -25,7 +27,7 @@ public class ClassPathGenerator {
      * @param directory location in the pc
      * @param outputFile se qui a etait crée.
      */
-    public static void generateClassPath(String directory, String outputFile) {
+    public static void generateClassPath(String directory, String outputFile) throws PathException {
         try {
             // Trouver tous les fichiers .jar dans le répertoire donné
             List<String> jarFiles = Files.walk(Paths.get(directory))
@@ -41,7 +43,7 @@ public class ClassPathGenerator {
 
             System.out.println("Classpath généré avec succès !");
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new PathException(e.getMessage());
         }
     }
 

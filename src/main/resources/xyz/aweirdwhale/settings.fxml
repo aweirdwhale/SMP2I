@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="720.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #1e1e1e;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xyz.aweirdwhale.controllers.SettingsController">
+
+    <ImageView fitHeight="122.0" fitWidth="350.0" layoutX="465.0" layoutY="29.0">
+        <Image url="@images/header.png" />
+    </ImageView>
+
+    <ImageView fitHeight="340.0" fitWidth="326.0" layoutX="824.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/skin_placeholder.png" />
+    </ImageView>
+
+    <!-- Label: "RAM ALLOUÉE :" -->
+    <Label layoutX="161.0" layoutY="221.0" style="-fx-text-fill: white; -fx-font-size: 14px;" text="RAM ALLOUÉE :" />
+
+    <!-- Slider pour la RAM -->
+    <Slider fx:id="ramSlider" layoutX="161.0" layoutY="285.0" prefWidth="300" style="                 -fx-control-inner-background: #0078D7;                 -fx-background-color: transparent;             " />
+
+
+    <!-- Label qui affiche la valeur du slider (en Go) -->
+    <Label fx:id="ramValueLabel" layoutX="161.0" layoutY="324.0" style="-fx-text-fill: white; -fx-font-size: 12px;" text="2 Go" />
+
+    <!-- Label: "DOSSIER DU JEU :" -->
+    <Label layoutX="161.0" layoutY="396.0" style="-fx-text-fill: white; -fx-font-size: 14px;" text="DOSSIER DU JEU :" />
+
+    <!-- Champ pour le chemin du dossier -->
+    <TextField fx:id="gameFolderField" layoutX="161.0" layoutY="453.0" prefWidth="250" style="-fx-text-fill: black;" />
+
+    <!-- Bouton pour ouvrir le dossier -->
+    <Button fx:id="openFolderButton" layoutX="439.0" layoutY="453.0" style="-fx-background-color: #2c2c2c; -fx-text-fill: white;" text="PARCOURIR" />
+
+    <!-- Bouton pour changer de skin -->
+    <Button fx:id="changeSkinButton" layoutX="929.0" layoutY="569.0" onAction="#handleChangeSkin" text="CHANGER DE SKIN" />
+
+</AnchorPane>

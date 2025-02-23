@@ -70,7 +70,7 @@ public class Downloader {
 
         try {
 
-            URL url = new URL(MODS_JSON_URL);
+            URL url = new URL(MODS_JSON_URL); // uri
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
