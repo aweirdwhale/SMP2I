@@ -1,9 +1,9 @@
 package xyz.aweirdwhale.updater;
 
 import org.json.*;
+import xyz.aweirdwhale.utils.exceptions.UpdaterException;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -24,7 +24,7 @@ public class applicationUpdater {
     private static final String PORT = "6969";
     private static final String SERVER = "http://ec2-13-60-48-128.eu-north-1.compute.amazonaws.com:"+PORT+TARGET;
 
-    private static String METHOD = "POST";
+    private static final String METHOD = "POST";
 
     private String clientVersion;
 
@@ -46,7 +46,7 @@ public class applicationUpdater {
 
 
 
-    public static int isUpdateable(String clientVersion) throws IOException, URISyntaxException {
+    public static void isUpdateable(String clientVersion) throws UpdaterException {
         String request_body = "{\"message\":\"isUpdateAvaliable\",\"client_version\":\"" + clientVersion + "\"}";
 
         try {
@@ -54,19 +54,13 @@ public class applicationUpdater {
             int responseCode = connection.getResponseCode();
             String response = connection.getResponseMessage();
 
-            return responseCode;
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        } catch (IOException | URISyntaxException e) {
+            throw new UpdaterException(e.getMessage());
         }
-
-
-        return -1;
     }
 
-    public void updateApplication() throws IOException, URISyntaxException {
-        if (isUpdateable(getClientVersion()) == 200) {
-            // TODO quand on aura un lien de téléchargement
-        }
+    public void updateApplication() throws UpdaterException {
+        isUpdateable(getClientVersion());// TODO quand on aura un lien de téléchargement
         System.out.println("Everything is Up-To-Date");
     }
 

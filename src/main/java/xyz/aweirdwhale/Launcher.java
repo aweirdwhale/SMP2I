@@ -17,23 +17,9 @@ import java.util.List;
 
 public class Launcher {
 
-    /**
-     * Lance Minecraft avec les mods.
-     *
-     * @param gameDir directory of minecraft in user pc
-     * @param assetsDir directorie of assets
-     * @param mainClass the mainclass of the game to launch
-     * @param jars all mods to get
-     * @param server the attribute of the serveur
-     * @param port the public port of the serveur or ip
-     * @param pseudo the pseudo of the player
-     * @throws LaunchException erreur of launch
-     */
-
 
     /**
      * Commande de lancement :
-     *
      * java -Xmx4G -Xms2G \
      *   -cp "versions/fabric-loader/fabric.jar:$(cat <path+classes.b004>)" \
      *   net.fabricmc.loader.impl.launch.knot.KnotClient \

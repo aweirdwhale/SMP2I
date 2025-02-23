@@ -1,9 +1,6 @@
 package xyz.aweirdwhale.installer;
 
-import xyz.aweirdwhale.utils.log.logger;
-
 import java.nio.file.Path;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -32,8 +29,8 @@ public class ClassPathGenerator {
         try {
             // Trouver tous les fichiers .jar dans le répertoire donné
             List<String> jarFiles = Files.walk(Paths.get(directory))
-                    .filter(path -> path.toString().endsWith(".jar"))
                     .map(Path::toString)
+                    .filter(string -> string.endsWith(".jar"))
                     .collect(Collectors.toList());
 
             // Construire le classpath en joignant les chemins avec ":"

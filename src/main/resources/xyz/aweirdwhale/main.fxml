@@ -22,7 +22,7 @@
     <Button fx:id="changeSkinButton" layoutX="359.0" layoutY="542.0" onAction="#handleChangeSkin" text="CHANGER DE SKIN" />
 
         <!-- Settings button -->
-    <Button layoutX="29.0" layoutY="29.0" mnemonicParsing="false">
+    <Button fx:id="settings" layoutX="29.0" layoutY="29.0" mnemonicParsing="false" onAction="#handlesettings">
         <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" styleClass="settings">
                 <Image url="@images/icons/Gears.png" />
@@ -33,5 +33,5 @@
         <!-- Info label -->
       <Label fx:id="loginInfoLabel" layoutX="761.0" layoutY="388.0"/>
 
-</AnchorPane>
-        </StackPane>
+    </AnchorPane>
+</StackPane>

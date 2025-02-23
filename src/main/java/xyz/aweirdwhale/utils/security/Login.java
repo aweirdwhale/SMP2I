@@ -1,9 +1,9 @@
 package xyz.aweirdwhale.utils.security;
 
+import xyz.aweirdwhale.utils.exceptions.LoginException;
 import xyz.aweirdwhale.utils.log.logger;
 
 import java.io.IOException;
-import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 
@@ -18,24 +18,20 @@ public class Login {
     */
 
 
-    private static String PORT = ":6969";
-    private static String TARGET = "/login"; //local varaible ? bah oui
-
-    private static String METHOD = "POST";
-
-    public static int login(String username, String hashed, String server) throws IOException, URISyntaxException {
+    public static int login(String username, String hashed, String server) throws LoginException {
         String request_body = "{\"user\":\"" + username + "\",\"mdp\":\"" + hashed + "\"}";
 
         try {
-            HttpURLConnection connection = getHttpURLConnection(server+PORT+TARGET, request_body, METHOD);
+            String TARGET = "/login";
+            String PORT = ":6969";
+            String METHOD = "POST";
+            HttpURLConnection connection = getHttpURLConnection(server+ PORT + TARGET, request_body, METHOD);
             int responseCode = connection.getResponseCode();
             logger.logInfo("Login response : " + responseCode);
             return responseCode;
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        } catch (IOException | URISyntaxException e) {
+            throw new LoginException(e.getMessage());
         }
 
-
-        return -1;
     }
 }
