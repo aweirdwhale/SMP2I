@@ -19,7 +19,7 @@ public class Login {
 
 
     private static String PORT = ":6969";
-    private static String TARGET = "/login";
+    private static String TARGET = "/login"; //local varaible ? bah oui
 
     private static String METHOD = "POST";
 

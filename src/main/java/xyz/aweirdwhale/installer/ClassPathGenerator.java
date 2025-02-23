@@ -2,7 +2,7 @@ package xyz.aweirdwhale.installer;
 
 import xyz.aweirdwhale.utils.log.logger;
 
-import java.io.File;
+import java.nio.file.Path;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,13 +12,23 @@ import java.util.stream.Collectors;
 
 public class ClassPathGenerator {
 
+    /**
+     * S'ocupe de tout generer (pour le test)
+     * @param args différents arguments et propriété.
+     */
     public static void main(String[] args) {
         String librariesDir = "libraries";
         String outputFile = "classpath.txt";
         generateClassPath(librariesDir, outputFile);
     }
 
-    public static void generateClasspath(String directory, String outputFile) {
+
+    /**
+     * Gènere une liste exhaustive des libs dont minecraft à besoin.
+     * @param directory location in the pc
+     * @param outputFile se qui a etait crée.
+     */
+    public static void generateClassPath(String directory, String outputFile) {
         try {
             // Trouver tous les fichiers .jar dans le répertoire donné
             List<String> jarFiles = Files.walk(Paths.get(directory))
@@ -38,16 +48,4 @@ public class ClassPathGenerator {
         }
     }
 
-    private static void findJars(File dir, StringBuilder classpath) {
-        File[] files = dir.listFiles();
-        if (files != null) {
-            for (File file : files) {
-                if (file.isDirectory()) {
-                    findJars(file, classpath);
-                } else if (file.getName().endsWith(".jar")) {
-                    classpath.append(file.getAbsolutePath()).append(":");
-                }
-            }
-        }
-    }
 }

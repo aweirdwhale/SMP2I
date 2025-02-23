@@ -15,19 +15,24 @@ import java.nio.channels.ReadableByteChannel;
 public class Downloader {
     /**
      * Downloads minecraft and fabric jar files
-     * in gamedir/versions
+     * in gamedir/versions/
      * **/
 
     private static String SERVER = "http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com";
     private static String PORT = ":6969";
-    private static final String FABRIC_URL = SERVER +PORT+ "/public/fabric-loader/fabric.jar";
-    private static final String FABRIC_JSON_URL = SERVER +PORT+ "/public/fabric-loader/fabric.json";
-    private static final String MINECRAFT_URL = SERVER +PORT+ "/public/1.21.4/1.21.4.jar";
-    private static final String MINECRAFT_JSON_URL = SERVER +PORT+ "/public/1.21.4/1.21.4.json";
-    private static final String MODS_JSON_URL = SERVER + PORT +"/public/mods.json";
+    private static final String FABRIC_URL = SERVER + PORT + "/public/fabric-loader/fabric.jar";
+    private static final String FABRIC_JSON_URL = SERVER + PORT + "/public/fabric-loader/fabric.json";
+    private static final String MINECRAFT_URL = SERVER + PORT + "/public/1.21.4/1.21.4.jar";
+    private static final String MINECRAFT_JSON_URL = SERVER + PORT + "/public/1.21.4/1.21.4.json";
+    private static final String MODS_JSON_URL = SERVER + PORT + "/public/mods.json";
 
 
-
+    /**
+     * s'occupe de telecharger la version requise du jeu sous fabric.
+     *
+     * @param path chemin demandé de l'installation
+     * @throws DownloadException erreur de téléchargement
+     */
     public static void downloadVersions(String path) throws DownloadException {
         // On suppose que la dir path/versions/ existe
         downloadFile(FABRIC_URL, path + "/versions/fabric-loader/fabric.jar");
@@ -37,6 +42,12 @@ public class Downloader {
         downloadFile(MINECRAFT_JSON_URL, path + "/versions/1.21.4/1.21.4.json");
     }
 
+    /**
+     * Télécharge les différente librairie essentiel.
+     *
+     * @param path chemin acccés (never use)
+     * @throws DownloadException erreur
+     */
     public static void downloadLibs(String path) throws DownloadException {
         // On suppose que la dir path/libraries/ existe
         // carrément le script a une classe solo
@@ -45,6 +56,12 @@ public class Downloader {
     }
 
 
+    /**
+     * telecharge tout les modes prédéfinies et crée le répertoire.
+     *
+     * @param path chemin
+     * @throws DownloadException erreur
+     */
     public static void downloadMods(String path) throws DownloadException {
         String modsDir = path + "/mods";
         File modsDirFile = new File(modsDir);
@@ -53,7 +70,8 @@ public class Downloader {
         }
 
         try {
-            URL url = new URL(MODS_JSON_URL);
+
+            URL url = new URL(MODS_JSON_URL); //pls where up to  20 not 19 use URI
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
@@ -111,5 +129,5 @@ public class Downloader {
             throw new DownloadException("Erreur lors du téléchargement de " + fileUrl + " : " + e.getMessage());
 
         }
+    }
 }
-  }

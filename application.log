@@ -1054,3 +1054,137 @@ java.nio.file.NoSuchFileException: /home/aweirdwhale/.smp2ix/classpath.txt
 	at javafx.graphics@21/com.sun.glass.ui.gtk.GtkApplication.lambda$runLoop$10(GtkApplication.java:263)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
+févr. 23, 2025 3:02:56 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Login response : 403
+févr. 23, 2025 3:02:56 AM xyz.aweirdwhale.utils.log.logger logWarning
+AVERTISSEMENT: ⚠ Wrong credentials or connection timeout.
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Login response : 200
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Connection successful.
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Creating game directory...
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: /home/aweirdwhale/.smp2ix/mods
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: /home/aweirdwhale/.smp2ix/assets
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: /home/aweirdwhale/.smp2ix/libraries
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: /home/aweirdwhale/.smp2ix/versions
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: /home/aweirdwhale/.smp2ix/versions/1.21.4
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: /home/aweirdwhale/.smp2ix/versions/fabric-loader
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: /home/aweirdwhale/.smp2ix/skin
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Game directory created.
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Downloading versions...
+févr. 23, 2025 3:03:02 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: [-] Downloading http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com:6969/public/fabric-loader/fabric.jar to /home/aweirdwhale/.smp2ix/versions/fabric-loader/fabric.jar
+févr. 23, 2025 3:03:06 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: [x] Downloaded http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com:6969/public/fabric-loader/fabric.jar to /home/aweirdwhale/.smp2ix/versions/fabric-loader/fabric.jar
+févr. 23, 2025 3:03:06 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: [-] Downloading http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com:6969/public/fabric-loader/fabric.json to /home/aweirdwhale/.smp2ix/versions/fabric-loader/fabric.json
+févr. 23, 2025 3:03:06 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: [x] Downloaded http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com:6969/public/fabric-loader/fabric.json to /home/aweirdwhale/.smp2ix/versions/fabric-loader/fabric.json
+févr. 23, 2025 3:03:06 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: [-] Downloading http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com:6969/public/1.21.4/1.21.4.jar to /home/aweirdwhale/.smp2ix/versions/1.21.4/1.21.4.jar
+févr. 23, 2025 3:03:12 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: [x] Downloaded http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com:6969/public/1.21.4/1.21.4.jar to /home/aweirdwhale/.smp2ix/versions/1.21.4/1.21.4.jar
+févr. 23, 2025 3:03:12 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: [-] Downloading http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com:6969/public/1.21.4/1.21.4.json to /home/aweirdwhale/.smp2ix/versions/1.21.4/1.21.4.json
+févr. 23, 2025 3:03:12 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: [x] Downloaded http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com:6969/public/1.21.4/1.21.4.json to /home/aweirdwhale/.smp2ix/versions/1.21.4/1.21.4.json
+févr. 23, 2025 3:03:12 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Versions downloaded.
+févr. 23, 2025 3:03:12 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Downloading libraries...
+févr. 23, 2025 3:03:12 AM xyz.aweirdwhale.utils.log.logger logError
+GRAVE: Error: The file versions/1.21.4/1.21.4.json does not exist.
+févr. 23, 2025 3:03:12 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Libraries downloaded.
+févr. 23, 2025 3:03:12 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Downloading mods...
+févr. 23, 2025 3:03:12 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Downloading mod fabric-api-0.118.0%2B1.21.4.jar
+févr. 23, 2025 3:03:12 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: [-] Downloading https://cdn.modrinth.com/data/P7dR8mSH/versions/ZNwYCTsk/fabric-api-0.118.0%2B1.21.4.jar to /home/aweirdwhale/.smp2ix/mods/fabric-api-0.118.0%2B1.21.4.jar
+févr. 23, 2025 3:03:14 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: [x] Downloaded https://cdn.modrinth.com/data/P7dR8mSH/versions/ZNwYCTsk/fabric-api-0.118.0%2B1.21.4.jar to /home/aweirdwhale/.smp2ix/mods/fabric-api-0.118.0%2B1.21.4.jar
+févr. 23, 2025 3:03:14 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Mods downloaded.
+févr. 23, 2025 3:03:14 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Generating ClassPath...
+févr. 23, 2025 3:03:14 AM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: ClassPath generated : /home/aweirdwhale/.smp2ix/classpaths.txt
+févr. 23, 2025 3:03:14 AM xyz.aweirdwhale.utils.log.logger logError
+GRAVE: Error while launching Minecraft: /home/aweirdwhale/.smp2ix/classpath.txt
+java.nio.file.NoSuchFileException: /home/aweirdwhale/.smp2ix/classpath.txt
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:261)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3263)
+	at xyz.aweirdwhale.Launcher.launchMinecraft(Launcher.java:101)
+	at xyz.aweirdwhale.Launcher.setUp(Launcher.java:84)
+	at xyz.aweirdwhale.controllers.MainController.handleConnection(MainController.java:107)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.gtk.GtkApplication.lambda$runLoop$10(GtkApplication.java:263)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
