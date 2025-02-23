@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import xyz.aweirdwhale.utils.exceptions.LibraryException;
 import xyz.aweirdwhale.utils.log.logger;
 
 public class LibraryInstaller {
@@ -24,7 +25,7 @@ public class LibraryInstaller {
             "https://maven.fabricmc.net/"
     };
 
-    public void run(String path) {
+    public void run(String path) throws LibraryException {
         // Check if JSON files exist
         for (String jsonPath : JSON_PATHS) {
             if (!new File(path+jsonPath).exists()) {
@@ -38,14 +39,9 @@ public class LibraryInstaller {
         List<String[]> urls = new ArrayList<>();
         Map<String, String> versionsMap = new HashMap<>();
         for (String jsonPath : JSON_PATHS) {
-            try {
-                String[] result = getLibrariesFromJson(path+jsonPath);
-                urls.addAll(Arrays.stream(result[0].split(";")).map(s -> s.split(",")).toList());
-                versionsMap.putAll(parseVersionsMap(result[1]));
-            } catch (IOException e) {
-                e.printStackTrace(); //same
-                return;
-            }
+            String[] result = getLibrariesFromJson(path+jsonPath);
+            urls.addAll(Arrays.stream(result[0].split(";")).map(s -> s.split(",")).toList());
+            versionsMap.putAll(parseVersionsMap(result[1]));
         }
 
         // Remove old versions of libraries
@@ -64,9 +60,9 @@ public class LibraryInstaller {
      * Cherche l'ensembles des librairie json.
      * @param jsonPath chemin du fichier json.
      * @return ensemble des librairies trouver dans le dossier.
-     * @throws IOException erreur
+     * @throws LibraryException erreur
      */
-    private String[] getLibrariesFromJson(String jsonPath) throws IOException {
+    private String[] getLibrariesFromJson(String jsonPath) throws LibraryException {
         StringBuilder urls = new StringBuilder();
         StringBuilder versionsMap = new StringBuilder();
 
@@ -119,6 +115,8 @@ public class LibraryInstaller {
                     }
                 }
             }
+        }  catch (IOException e) {
+            throw new LibraryException(e.getMessage());
         }
 
         return new String[]{urls.toString(), versionsMap.toString()};
@@ -180,7 +178,7 @@ public class LibraryInstaller {
 
     }
 
-    private void downloadLibrary(String urlString, String filePath, String path) {
+    private void downloadLibrary(String urlString, String filePath, String path) throws LibraryException {
         File file = new File(path+LIBRARIES_DIR + filePath);
         if (file.exists()) {
             System.out.println("✔ Fichier déjà présent : " + file.getPath() + ", passage au suivant...");
@@ -197,7 +195,7 @@ public class LibraryInstaller {
             System.out.println("Téléchargement de " + urlString + "à " + file.getPath() + "...");
             logger.logInfo("Downloading " + urlString + "to" + file.getPath() + "...");
 
-            URL url = new URL(urlString);
+            URL url = new URL(urlString); //URI
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
@@ -216,7 +214,7 @@ public class LibraryInstaller {
                 logger.logError("❌ Error (" + connection.getResponseCode() + ") While downloading " + urlString, null);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new LibraryException(e.getMessage());
         }
     }
 }

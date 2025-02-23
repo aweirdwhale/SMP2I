@@ -13,9 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import xyz.aweirdwhale.Launcher;
 
-import xyz.aweirdwhale.utils.exceptions.CommunicationException;
-import xyz.aweirdwhale.utils.exceptions.ControllerException;
-import xyz.aweirdwhale.utils.exceptions.LoginException;
+import xyz.aweirdwhale.utils.exceptions.*;
 import xyz.aweirdwhale.utils.log.logger;
 import xyz.aweirdwhale.utils.security.HashPwd;
 
@@ -64,7 +62,7 @@ public class MainController {
      * @param actionEvent l'action effectuer (never use)
      */
     @FXML
-    public void handleConnection(ActionEvent actionEvent) throws ControllerException {
+    public void handleConnection(ActionEvent actionEvent) throws ControllerException, LaunchException, DownloadException {
         // get creds
         String username = usernameField.getText();
         username = usernamePostProcessing(username);
