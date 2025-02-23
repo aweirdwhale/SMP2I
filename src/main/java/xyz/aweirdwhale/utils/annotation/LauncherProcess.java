@@ -8,3 +8,4 @@ import java.lang.annotation.*;
 public @interface LauncherProcess {
     String value() default "";
 }
+//We can delete it, never use.

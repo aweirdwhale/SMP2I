@@ -58,17 +58,17 @@ public class Launcher {
                 // télécharge les versions
                 logger.logInfo("Downloading versions...");
                 Downloader Downloader = new Downloader();
-                Downloader.downloadVersions(path);
+                xyz.aweirdwhale.installer.Downloader.downloadVersions(path);
                 logger.logInfo("Versions downloaded.");
 
                 // télécharge les libs
                 logger.logInfo("Downloading libraries...");
-                Downloader.downloadLibs(path);
+                xyz.aweirdwhale.installer.Downloader.downloadLibs(path);
                 logger.logInfo("Libraries downloaded.");
 
                 // télécharge les mods
                 logger.logInfo("Downloading mods...");
-                Downloader.downloadMods(path);
+                xyz.aweirdwhale.installer.Downloader.downloadMods(path);
                 logger.logInfo("Mods downloaded.");
 
                 //generating ClassPath
@@ -84,9 +84,7 @@ public class Launcher {
             launchMinecraft("4", "2", dir + "/classes.b004", username, dir);
 
 
-        } catch (DownloadException e) {
-            throw new RuntimeException(e);
-        } catch (LaunchException e) {
+        } catch (DownloadException | LaunchException e) {
             throw new RuntimeException(e);
         }
     }

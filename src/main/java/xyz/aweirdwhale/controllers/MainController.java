@@ -28,8 +28,10 @@ import java.util.List;
 import static xyz.aweirdwhale.utils.security.Login.login;
 
 public class MainController {
+
     public Button loginButton;
     public Button changeSkinButton;
+
     @FXML private Label loginInfoLabel;
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
@@ -40,6 +42,7 @@ public class MainController {
     /**
      * Assuming the existance of server/public/mods.json
      * **/
+
 //    private static final String[] MOD_URLS = {
 //            "https://cdn.modrinth.com/data/PtjYWJkn/versions/f4TfteNb/sodium-extra-fabric-0.6.1%2Bmc1.21.4.jar"
 //    };
@@ -59,7 +62,10 @@ public class MainController {
         return username.trim();
     }
 
-
+    /**
+     * S'occupe de connecter le joeur vers le serveur demandé avec c'est info. Gère les différents problèmes.
+     * @param actionEvent l'action effectuer (never use)
+     */
     @FXML
     public void handleConnection(ActionEvent actionEvent) {
         // get creds
@@ -86,11 +92,9 @@ public class MainController {
         } catch (CommunicationException e) {
             setInfoLabel("⚠ Erreur de communication avec le serveur.", "red");
             logger.logError("⚠ Communication error with server : " + e.getMessage(), e);
-            e.printStackTrace();
+            e.printStackTrace(); // not robust loggin
             return;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (URISyntaxException e) {
+        } catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);
         }
 

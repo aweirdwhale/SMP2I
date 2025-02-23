@@ -8,12 +8,21 @@ import java.io.IOException;
 
 public class ClassPathGenerator {
 
+    /**
+     * S'ocupe de tout generer
+     * @param args différents arguments et propriété.
+     */
     public static void main(String[] args) {
         String librariesDir = "libraries";
         String outputFile = "classpath.txt";
         generateClassPath(librariesDir, outputFile);
     }
 
+    /**
+     * Gènere l'essentiel des fichier et package pour les parametre.
+     * @param dir location in the pc
+     * @param outputFile se qui a etait crée.
+     */
     public static void generateClassPath(String dir, String outputFile) {
         File directory = new File(dir);
         StringBuilder classpath = new StringBuilder();
@@ -26,10 +35,15 @@ public class ClassPathGenerator {
             writer.write(classpath.toString());
         } catch (IOException e) {
             logger.logError("Error while writing classpath to file", e);
-            e.printStackTrace();
+            e.printStackTrace(); // not secure need upadte
         }
     }
 
+    /**
+     * Cherche et renvoie le jar demandé.
+     * @param dir directory où il faut chercher le jar
+     * @param classpath chemin des param et autre
+     */
     private static void findJars(File dir, StringBuilder classpath) {
         File[] files = dir.listFiles();
         if (files != null) {

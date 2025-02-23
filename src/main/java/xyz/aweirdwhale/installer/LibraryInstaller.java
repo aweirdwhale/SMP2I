@@ -40,10 +40,10 @@ public class LibraryInstaller {
         for (String jsonPath : JSON_PATHS) {
             try {
                 String[] result = getLibrariesFromJson(jsonPath);
-                urls.addAll(Arrays.asList(result[0].split(";")).stream().map(s -> s.split(",")).toList());
+                urls.addAll(Arrays.stream(result[0].split(";")).map(s -> s.split(",")).toList());
                 versionsMap.putAll(parseVersionsMap(result[1]));
             } catch (IOException e) {
-                e.printStackTrace();
+                e.printStackTrace(); //same
                 return;
             }
         }
@@ -60,6 +60,12 @@ public class LibraryInstaller {
         logger.logInfo("✅ Downloading done !");
     }
 
+    /**
+     * Cherche l'ensembles des librairie json.
+     * @param jsonPath chemin du fichier json.
+     * @return ensemble des librairies trouver dans le dossier.
+     * @throws IOException erreur
+     */
     private String[] getLibrariesFromJson(String jsonPath) throws IOException {
         StringBuilder urls = new StringBuilder();
         StringBuilder versionsMap = new StringBuilder();
@@ -118,6 +124,11 @@ public class LibraryInstaller {
         return new String[]{urls.toString(), versionsMap.toString()};
     }
 
+    /**
+     *
+     * @param versionsMapStr
+     * @return différente version de la Map.
+     */
     private Map<String, String> parseVersionsMap(String versionsMapStr) {
         Map<String, String> versionsMap = new HashMap<>();
         String[] entries = versionsMapStr.split(";");

@@ -10,7 +10,7 @@ public class setupEnvironment {
      * Creates the root directory of the game and its subdirectories
      * **/
     public static String createGameDir() {
-        String home = System.getProperty("user.home");
+        String home = System.getProperty("user.home"); // best to use : String path = getGameDir(); (static and less complexe)
         String os = System.getProperty("os.name").toLowerCase();
         String path;
 
@@ -29,6 +29,11 @@ public class setupEnvironment {
         return path;
     }
 
+    /**
+     * Créateur de sous dossier du jeu dans le répertoire du jeu.
+     * @param parentPath le chemin du dossier parent,
+     * @param subDir nom du sous dossier
+     */
     private static void createSubDirectory(String parentPath, String subDir) {
         File dir = new File(parentPath + "/" + subDir);
         if (!dir.exists()) {
@@ -37,6 +42,10 @@ public class setupEnvironment {
         }
     }
 
+    /**
+     * Cherche le dossier du jeu.
+     * @return Renoie le chemin pour trouver le jeu.
+     */
     public static String getGameDir() {
         String home = System.getProperty("user.home");
         String os = System.getProperty("os.name").toLowerCase();

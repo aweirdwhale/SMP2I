@@ -20,9 +20,9 @@ public class applicationUpdater {
     */
 
 
-    private static String TARGET = "/updater";
-    private static String PORT = "6969";
-    private static String SERVER = "http://ec2-13-60-48-128.eu-north-1.compute.amazonaws.com:"+PORT+TARGET;
+    private static final String TARGET = "/updater";
+    private static final String PORT = "6969";
+    private static final String SERVER = "http://ec2-13-60-48-128.eu-north-1.compute.amazonaws.com:"+PORT+TARGET;
 
     private static String METHOD = "POST";
 
