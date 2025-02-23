@@ -2,6 +2,7 @@ package xyz.aweirdwhale;
 
 import xyz.aweirdwhale.installer.ClassPathGenerator;
 import xyz.aweirdwhale.installer.Downloader;
+import xyz.aweirdwhale.installer.LibraryInstaller;
 import xyz.aweirdwhale.installer.setupEnvironment;
 import xyz.aweirdwhale.utils.exceptions.DownloadException;
 import xyz.aweirdwhale.utils.exceptions.LaunchException;
@@ -66,6 +67,9 @@ public class Launcher {
                 xyz.aweirdwhale.installer.Downloader.downloadLibs(path);
                 logger.logInfo("Libraries downloaded.");
 
+                logger.logInfo("Deleting the old asm");
+                LibraryInstaller.deleteThisFuckingAsm(path);
+
                 // télécharge les mods
                 logger.logInfo("Downloading mods...");
                 xyz.aweirdwhale.installer.Downloader.downloadMods(path);
@@ -73,7 +77,7 @@ public class Launcher {
 
                 //generating ClassPath
                 logger.logInfo("Generating ClassPath...");
-                ClassPathGenerator.generateClassPath(path + "/libraries", path + "/classpaths.txt");
+                ClassPathGenerator.generateClassPath(path + "/libraries", path + "/classpath.txt");
                 logger.logInfo("ClassPath generated : " + path + "/classpaths.txt");
 
            // }
@@ -81,7 +85,7 @@ public class Launcher {
             //logger.logInfo("Environment already set up. Skipping setup.");
 
             //lance le jeu
-            launchMinecraft("4", "2", path + "/classpath.txt", username, path);
+            launchMinecraft("4", "2", path + "/classpath.txt", username, path, dir);
 
 
         } catch (DownloadException | LaunchException e) {
@@ -89,7 +93,7 @@ public class Launcher {
         }
     }
 
-    public static void launchMinecraft(String maxRam, String minRam, String ClassPaths, String username, String gameDir) throws LaunchException {
+    public static void launchMinecraft(String maxRam, String minRam, String ClassPaths, String username, String gameDir, String path) throws LaunchException {
         try {
             List<String> command = new ArrayList<>();
             command.add("java");
@@ -99,7 +103,7 @@ public class Launcher {
 
             // Assuming the content of <path+classes.b004> is read into a variable called classpathContent
             String classpathContent = new String(Files.readAllBytes(Paths.get(ClassPaths)));
-            String classpath = "versions/fabric-loader/fabric.jar:" + classpathContent.trim();
+            String classpath = path + "/versions/fabric-loader/fabric.jar:" + classpathContent.trim();
             command.add(classpath);
 
             command.add("net.fabricmc.loader.impl.launch.knot.KnotClient");

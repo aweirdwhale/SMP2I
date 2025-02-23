@@ -52,7 +52,7 @@ public class Downloader {
         // On suppose que la dir path/libraries/ existe
         // carrément le script a une classe solo
         LibraryInstaller installer = new LibraryInstaller();
-        installer.run();
+        installer.run(path);
     }
 
 

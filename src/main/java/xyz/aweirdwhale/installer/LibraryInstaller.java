@@ -15,21 +15,21 @@ import xyz.aweirdwhale.utils.log.logger;
 public class LibraryInstaller {
 
     private static final String[] JSON_PATHS = {
-            "versions/1.21.4/1.21.4.json",
-            "versions/fabric-loader/fabric.json"
+            "/versions/1.21.4/1.21.4.json",
+            "/versions/fabric-loader/fabric.json"
     };
-    private static final String LIBRARIES_DIR = "libraries/";
+    private static final String LIBRARIES_DIR = "/libraries/";
     private static final String[] MAVEN_REPOSITORIES = {
             "https://libraries.minecraft.net/",
             "https://maven.fabricmc.net/"
     };
 
-    public void run() {
+    public void run(String path) {
         // Check if JSON files exist
         for (String jsonPath : JSON_PATHS) {
-            if (!new File(jsonPath).exists()) {
-                System.out.println("Erreur: Le fichier " + jsonPath + " n'existe pas.");
-                logger.logError("Error: The file " + jsonPath + " does not exist.", null);
+            if (!new File(path+jsonPath).exists()) {
+                System.out.println("Erreur: Le fichier " + path+jsonPath + " n'existe pas.");
+                logger.logError("Error: The file " + path+jsonPath + " does not exist.", null);
                 return;
             }
         }
@@ -39,7 +39,7 @@ public class LibraryInstaller {
         Map<String, String> versionsMap = new HashMap<>();
         for (String jsonPath : JSON_PATHS) {
             try {
-                String[] result = getLibrariesFromJson(jsonPath);
+                String[] result = getLibrariesFromJson(path+jsonPath);
                 urls.addAll(Arrays.stream(result[0].split(";")).map(s -> s.split(",")).toList());
                 versionsMap.putAll(parseVersionsMap(result[1]));
             } catch (IOException e) {
@@ -49,11 +49,11 @@ public class LibraryInstaller {
         }
 
         // Remove old versions of libraries
-        removeOldVersions(versionsMap);
+        removeOldVersions(versionsMap, path);
 
         // Download each library
         for (String[] urlPath : urls) {
-            downloadLibrary(urlPath[0], urlPath[1]);
+            downloadLibrary(urlPath[0], urlPath[1], path);
         }
 
         System.out.println("✅ Téléchargement terminé !");
@@ -141,8 +141,8 @@ public class LibraryInstaller {
         return versionsMap;
     }
 
-    private void removeOldVersions(Map<String, String> versionsMap) {
-        File librariesDir = new File(LIBRARIES_DIR);
+    private void removeOldVersions(Map<String, String> versionsMap, String path) {
+        File librariesDir = new File(path+LIBRARIES_DIR);
         if (librariesDir.exists() && librariesDir.isDirectory()) {
             for (File file : librariesDir.listFiles()) {
                 if (file.isFile()) {
@@ -161,11 +161,31 @@ public class LibraryInstaller {
         }
     }
 
-    private void downloadLibrary(String urlString, String filePath) {
-        File file = new File(LIBRARIES_DIR + filePath);
+
+    /**
+     * IDK wtf I have to delete this one manually
+     * **/
+    public static void deleteThisFuckingAsm(String path){
+        String filePath = path + "/libraries/org/ow2/asm/asm/9.6/asm-9.6.jar";
+        File file = new File(filePath);
+
+        if (file.exists()) {
+            if (file.delete()) {
+                System.out.println("✔ Fichier supprimé avec succès !");
+            } else {
+                System.out.println("❌ Impossible de supprimer le fichier.");
+            }
+        } else {
+            System.out.println("⚠ Fichier introuvable.");
+        }
+
+    }
+
+    private void downloadLibrary(String urlString, String filePath, String path) {
+        File file = new File(path+LIBRARIES_DIR + filePath);
         if (file.exists()) {
             System.out.println("✔ Fichier déjà présent : " + file.getPath() + ", passage au suivant...");
-            logger.logInfo("✔ File already satisfied : " + file.getPath() + ", next...");
+            logger.logInfo("✔ File already satisfied : " + file.getPath() + ", moving to the next one...");
             return;
         }
 
@@ -175,8 +195,8 @@ public class LibraryInstaller {
                 parentDir.mkdirs();
             }
 
-            System.out.println("Téléchargement de " + urlString + "...");
-            logger.logInfo("Downloading " + urlString + "...");
+            System.out.println("Téléchargement de " + urlString + "à " + file.getPath() + "...");
+            logger.logInfo("Downloading " + urlString + "to" + file.getPath() + "...");
 
             URL url = new URL(urlString);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
