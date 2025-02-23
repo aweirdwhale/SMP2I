@@ -63,7 +63,7 @@ public class MainController {
      * @param actionEvent l'action effectuer (never use)
      */
     @FXML
-    public void handleConnection(ActionEvent actionEvent) throws ControllerException, LaunchException, DownloadException {
+    public void handleConnection(ActionEvent actionEvent) throws ControllerException, LaunchException {
         // get creds
         String username = usernameField.getText();
         username = usernamePostProcessing(username);

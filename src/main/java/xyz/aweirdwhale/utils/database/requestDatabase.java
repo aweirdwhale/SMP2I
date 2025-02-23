@@ -30,7 +30,7 @@ public class requestDatabase {
      * @throws URISyntaxException erreur
      * @throws IOException erreur
      */
-    public static HttpURLConnection getHttpURLConnection(String address, String request, String httpMethode) throws URISyntaxException, IOException {
+    public static HttpURLConnection getHttpURLConnection(String address, String request, String httpMethode) throws DatabaseException, IOException, URISyntaxException {
         // Handle URIs
         URI uri = new URI(address);
         URL url = uri.toURL();
