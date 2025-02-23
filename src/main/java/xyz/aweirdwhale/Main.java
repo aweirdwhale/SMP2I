@@ -6,11 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import xyz.aweirdwhale.installer.getServerUrl;
+import xyz.aweirdwhale.utils.log.logger;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class Main  extends Application {
+
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -41,6 +44,9 @@ public class Main  extends Application {
     }
 
     public static void main(String[] args) {
+        String initServerUrl = getServerUrl.getServerUrl();
+        logger.logInfo("Server URL : " + initServerUrl);
+        System.out.println("Server URL : " + initServerUrl);
         launch();
     }
 

@@ -25,7 +25,7 @@ public class Login {
             String TARGET = "/login";
             String PORT = ":6969";
             String METHOD = "POST";
-            HttpURLConnection connection = getHttpURLConnection(server+ PORT + TARGET, request_body, METHOD);
+            HttpURLConnection connection = getHttpURLConnection(server + PORT + TARGET, request_body, METHOD);
             int responseCode = connection.getResponseCode();
             logger.logInfo("Login response : " + responseCode);
             return responseCode;

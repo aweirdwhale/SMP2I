@@ -17,7 +17,7 @@ public class Downloader {
      * in gamedir/versions/
      * **/
 
-    private static final String SERVER = "http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com";
+    private static final String SERVER = "http://"+getServerUrl.SERVER;
     private static final String PORT = ":6969";
     private static final String FABRIC_URL = SERVER + PORT + "/public/fabric-loader/fabric.jar";
     private static final String FABRIC_JSON_URL = SERVER + PORT + "/public/fabric-loader/fabric.json";

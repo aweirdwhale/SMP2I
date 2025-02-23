@@ -1,6 +1,7 @@
 package xyz.aweirdwhale.updater;
 
 import org.json.*;
+import xyz.aweirdwhale.installer.getServerUrl;
 import xyz.aweirdwhale.utils.exceptions.UpdaterException;
 
 import java.io.BufferedReader;
@@ -22,7 +23,7 @@ public class applicationUpdater {
 
     private static final String TARGET = "/updater";
     private static final String PORT = "6969";
-    private static final String SERVER = "http://ec2-13-60-48-128.eu-north-1.compute.amazonaws.com:"+PORT+TARGET;
+    private static final String SERVER = "http://"+ getServerUrl.SERVER+PORT+TARGET;
 
     private static final String METHOD = "POST";
 

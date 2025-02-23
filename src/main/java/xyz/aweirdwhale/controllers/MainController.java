@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import xyz.aweirdwhale.Launcher;
 
+import xyz.aweirdwhale.installer.getServerUrl;
 import xyz.aweirdwhale.utils.exceptions.*;
 import xyz.aweirdwhale.utils.log.logger;
 import xyz.aweirdwhale.utils.security.HashPwd;
@@ -31,7 +32,7 @@ public class MainController {
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
 
-    public static final String SERVER = "http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com";
+    public static final String SERVER = "http://"+ getServerUrl.SERVER;
     public static final String PORT = "6969";
 
     /**
@@ -83,7 +84,9 @@ public class MainController {
 
         int res; // init la réponse (http status code)
         try {
+            System.out.println(SERVER);
             res = login(username, hashed, SERVER);
+
         } catch (CommunicationException e) {
             setInfoLabel("⚠ Erreur de communication avec le serveur.", "red");
             logger.logError("⚠ Communication error with server : " + e.getMessage(), e);
