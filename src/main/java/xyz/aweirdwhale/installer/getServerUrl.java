@@ -40,12 +40,8 @@ public class getServerUrl {
 
             SERVER = content.toString();
 
-        } catch (CommunicationException | ReadingException | ProtocolException e) {
+        } catch (CommunicationException | ReadingException | IOException e) {
             throw new CommunicationException(e);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
 
         return SERVER;
