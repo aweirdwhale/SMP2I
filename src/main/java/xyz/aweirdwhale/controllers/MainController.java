@@ -2,17 +2,24 @@ package xyz.aweirdwhale.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import javafx.stage.Stage;
 import xyz.aweirdwhale.Launcher;
 
 import xyz.aweirdwhale.utils.exceptions.CommunicationException;
+import xyz.aweirdwhale.utils.exceptions.ControllerException;
 import xyz.aweirdwhale.utils.exceptions.LoginException;
 import xyz.aweirdwhale.utils.log.logger;
 import xyz.aweirdwhale.utils.security.HashPwd;
+
+import java.io.IOException;
 
 import static xyz.aweirdwhale.utils.security.Login.login;
 
@@ -57,7 +64,7 @@ public class MainController {
      * @param actionEvent l'action effectuer (never use)
      */
     @FXML
-    public void handleConnection(ActionEvent actionEvent) {
+    public void handleConnection(ActionEvent actionEvent) throws ControllerException {
         // get creds
         String username = usernameField.getText();
         username = usernamePostProcessing(username);
@@ -82,8 +89,7 @@ public class MainController {
         } catch (CommunicationException e) {
             setInfoLabel("⚠ Erreur de communication avec le serveur.", "red");
             logger.logError("⚠ Communication error with server : " + e.getMessage(), e);
-            e.printStackTrace(); // not robust loggin
-            return;
+            throw new ControllerException("Communication error with server : " + e.getMessage(), e);
         } catch (LoginException e) {
             throw new RuntimeException(e);
         }
@@ -107,7 +113,24 @@ public class MainController {
         // TODO : Changer la skin du joueur (aucune idée de comment pour le moment)
     }
 
-    public void handlesettings(ActionEvent actionEvent) {
+    @FXML
+    public void handlesettings(ActionEvent actionEvent) throws ControllerException {
+        try {
+            // Charge le fichier FXML de l'écran de configuration
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/xyz/aweirdwhale//settings.fxml"));
+            Parent settingsRoot = loader.load();
+
+            // Récupère la fenêtre (Stage) actuelle à partir du bouton
+            Stage stage = (Stage) settings.getScene().getWindow();
+
+            // Remplace la scène de la fenêtre par la nouvelle
+            stage.setScene(new Scene(settingsRoot));
+            stage.show();
+
+        } catch (IOException e) {
+            throw new ControllerException("Cannot load FXML file", e);
+
+        }
 
     }
 }
