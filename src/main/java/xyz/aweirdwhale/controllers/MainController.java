@@ -104,7 +104,7 @@ public class MainController {
 
         } else {
             setInfoLabel("Attention ! Mauvais identifiants.", "red");
-            logger.logWarning("⚠ Wrong credentials.");
+            logger.logWarning("⚠ Wrong credentials or connection timeout.");
         }
     }
 

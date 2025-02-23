@@ -19,20 +19,22 @@ public class Downloader {
      * **/
 
     private static String SERVER = "http://ec2-13-49-57-24.eu-north-1.compute.amazonaws.com";
-    private static String PORT = "6969";
+    private static String PORT = ":6969";
     private static final String FABRIC_URL = SERVER +PORT+ "/public/fabric-loader/fabric.jar";
     private static final String FABRIC_JSON_URL = SERVER +PORT+ "/public/fabric-loader/fabric.json";
     private static final String MINECRAFT_URL = SERVER +PORT+ "/public/1.21.4/1.21.4.jar";
     private static final String MINECRAFT_JSON_URL = SERVER +PORT+ "/public/1.21.4/1.21.4.json";
+    private static final String MODS_JSON_URL = SERVER + PORT +"/public/mods.json";
+
 
 
     public static void downloadVersions(String path) throws DownloadException {
         // On suppose que la dir path/versions/ existe
-        downloadFile(FABRIC_URL, path + "/versions/fabric.jar");
-        downloadFile(FABRIC_JSON_URL, path + "/versions/fabric.json");
+        downloadFile(FABRIC_URL, path + "/versions/fabric-loader/fabric.jar");
+        downloadFile(FABRIC_JSON_URL, path + "/versions/fabric-loader/fabric.json");
 
-        downloadFile(MINECRAFT_URL, path + "/versions/1.21.4.jar");
-        downloadFile(MINECRAFT_JSON_URL, path + "/versions/1.21.4.json");
+        downloadFile(MINECRAFT_URL, path + "/versions/1.21.4/1.21.4.jar");
+        downloadFile(MINECRAFT_JSON_URL, path + "/versions/1.21.4/1.21.4.json");
     }
 
     public static void downloadLibs(String path) throws DownloadException {
@@ -42,7 +44,6 @@ public class Downloader {
         installer.run();
     }
 
-    private static final String MODS_JSON_URL = "server/public/mods.json";
 
     public static void downloadMods(String path) throws DownloadException {
         String modsDir = path + "/mods";
@@ -58,20 +59,20 @@ public class Downloader {
 
             if (connection.getResponseCode() == 200) {
                 StringBuilder jsonContent = new StringBuilder();
-                try (BufferedReader reader = new BufferedReader(new FileReader(url.getPath()))) {
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
                     String line;
                     while ((line = reader.readLine()) != null) {
                         jsonContent.append(line);
                     }
                 }
 
-                JSONObject data = new JSONObject(jsonContent.toString());
-                JSONArray mods = data.getJSONArray("mods");
+                JSONArray mods = new JSONArray(jsonContent.toString());
 
                 for (int i = 0; i < mods.length(); i++) {
-                    JSONObject mod = mods.getJSONObject(i);
-                    String modUrl = mod.getString("url");
-                    String modPath = modsDir + "/" + mod.getString("path");
+                    String modUrl = mods.getString(i);
+                    String modName = modUrl.substring(modUrl.lastIndexOf('/') + 1);
+                    String modPath = modsDir + "/" + modName;
+                    logger.logInfo("Downloading mod " + modName);
                     downloadFile(modUrl, modPath);
                 }
             } else {

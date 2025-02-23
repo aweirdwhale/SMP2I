@@ -1,5 +1,7 @@
 package xyz.aweirdwhale.utils.security;
 
+import xyz.aweirdwhale.utils.log.logger;
+
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
@@ -16,7 +18,7 @@ public class Login {
     */
 
 
-    private static String PORT = "6969";
+    private static String PORT = ":6969";
     private static String TARGET = "/login";
 
     private static String METHOD = "POST";
@@ -27,7 +29,7 @@ public class Login {
         try {
             HttpURLConnection connection = getHttpURLConnection(server+PORT+TARGET, request_body, METHOD);
             int responseCode = connection.getResponseCode();
-
+            logger.logInfo("Login response : " + responseCode);
             return responseCode;
         } catch (IOException e) {
             System.out.println(e.getMessage());

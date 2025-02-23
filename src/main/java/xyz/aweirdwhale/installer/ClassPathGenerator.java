@@ -5,6 +5,10 @@ import xyz.aweirdwhale.utils.log.logger;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ClassPathGenerator {
 
@@ -14,18 +18,22 @@ public class ClassPathGenerator {
         generateClassPath(librariesDir, outputFile);
     }
 
-    public static void generateClassPath(String dir, String outputFile) {
-        File directory = new File(dir);
-        StringBuilder classpath = new StringBuilder();
+    public static void generateClasspath(String directory, String outputFile) {
+        try {
+            // Trouver tous les fichiers .jar dans le répertoire donné
+            List<String> jarFiles = Files.walk(Paths.get(directory))
+                    .filter(path -> path.toString().endsWith(".jar"))
+                    .map(Path::toString)
+                    .collect(Collectors.toList());
 
-        if (directory.exists() && directory.isDirectory()) {
-            findJars(directory, classpath);
-        }
+            // Construire le classpath en joignant les chemins avec ":"
+            String classpath = String.join(":", jarFiles);
 
-        try (FileWriter writer = new FileWriter(outputFile)) {
-            writer.write(classpath.toString());
+            // Écrire le résultat dans un fichier
+            Files.write(Paths.get(outputFile), classpath.getBytes());
+
+            System.out.println("Classpath généré avec succès !");
         } catch (IOException e) {
-            logger.logError("Error while writing classpath to file", e);
             e.printStackTrace();
         }
     }

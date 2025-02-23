@@ -49,7 +49,7 @@ public class Launcher {
 
             String dir = setupEnvironment.getGameDir();
             File gameDir = new File(dir);
-            if (!gameDir.exists() || !gameDir.isDirectory()) {
+            //if (!gameDir.exists() || !gameDir.isDirectory()) {
                 // crée la structure de fichiers
                 logger.logInfo("Creating game directory...");
                 String path = setupEnvironment.createGameDir();
@@ -73,15 +73,15 @@ public class Launcher {
 
                 //generating ClassPath
                 logger.logInfo("Generating ClassPath...");
-                ClassPathGenerator.generateClassPath(path + "/libraries", path + "/classes.b004");
-                logger.logInfo("ClassPath generated : " + path + "/classes.b004");
+                ClassPathGenerator.generateClassPath(path + "/libraries", path + "/classpaths.txt");
+                logger.logInfo("ClassPath generated : " + path + "/classpaths.txt");
 
-            }
+           // }
 
-            logger.logInfo("Environment already set up. Skipping setup.");
+            //logger.logInfo("Environment already set up. Skipping setup.");
 
             //lance le jeu
-            launchMinecraft("4", "2", dir + "/classes.b004", username, dir);
+            launchMinecraft("4", "2", path + "/classpath.txt", username, path);
 
 
         } catch (DownloadException e) {
