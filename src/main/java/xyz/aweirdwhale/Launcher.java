@@ -67,9 +67,9 @@ public class Launcher {
                 logger.logInfo("Mods downloaded.");
 
                 //generating ClassPath
-                //logger.logInfo("Generating ClassPath...");
-                //ClassPathGenerator.generateClassPath(path + "/libraries", path + "/classpath.txt");
-                //logger.logInfo("ClassPath generated : " + path + "/classpaths.txt");
+                logger.logInfo("Generating ClassPath...");
+                ClassPathGenerator.generateClassPath(path + "/libraries", path + "/classpath.txt");
+                logger.logInfo("ClassPath generated : " + path + "/classpaths.txt");
 
            // }
 

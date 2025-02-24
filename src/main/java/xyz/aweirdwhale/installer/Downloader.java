@@ -9,7 +9,6 @@ import xyz.aweirdwhale.utils.log.logger;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
@@ -28,13 +27,13 @@ public class Downloader {
     private static final String MODS_JSON_URL = SERVER + PORT + "/public/mods.json";
 
     // URL de base pour télécharger les assets (modifiez si votre serveur privé est différent)
-    private static final String ASSET_BASE_URL = "https://resources.download.minecraft.net";
+    private static final String ASSET_BASE_URL = "http://resources.download.minecraft.net";
 
     /**
      * Télécharge la version requise du jeu sous Fabric.
      */
     public static void downloadVersions(String path) throws DownloadException {
-
+        // On suppose que le répertoire path/versions/ existe
         downloadFile(FABRIC_URL, path + "/versions/fabric-loader/fabric.jar");
         downloadFile(FABRIC_JSON_URL, path + "/versions/fabric-loader/fabric.json");
 
@@ -61,8 +60,7 @@ public class Downloader {
         }
 
         try {
-            URI uri = new URI(MODS_JSON_URL);
-            URL url = uri.toURL();
+            URL url = new URL(MODS_JSON_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
@@ -86,7 +84,7 @@ public class Downloader {
             } else {
                 logger.logError("❌ Error (" + connection.getResponseCode() + ") while fetching mods.json", null);
             }
-        } catch (IOException | URISyntaxException e ) {
+        } catch (IOException e) {
             logger.logError("Error while downloading mods: " + e.getMessage(), e);
             throw new DownloadException("Error while downloading mods: " + e.getMessage());
         }
@@ -184,13 +182,8 @@ public class Downloader {
                 }
                 String assetLocalPath = assetLocalDirPath + "/" + hash;
                 // Téléchargement de l'asset
-                try {
-                    logger.logInfo("Downloading asset: " + assetName + " from " + assetDownloadUrl);
-                    downloadFile(assetDownloadUrl, assetLocalPath);
-                } catch (DownloadException e) {
-                    logger.logError("Error while downloading asset: " + assetName + " : " + e.getMessage(), e);
-                    // Continue to the next asset
-                }
+                logger.logInfo("Downloading asset: " + assetName + " from " + assetDownloadUrl);
+                downloadFile(assetDownloadUrl, assetLocalPath);
             }
 
         } catch (IOException | JSONException e) {
