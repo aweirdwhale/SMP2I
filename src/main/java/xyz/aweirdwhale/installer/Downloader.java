@@ -19,7 +19,7 @@ import java.util.Iterator;
 
 public class Downloader {
 
-    private static final String SERVER = "https://" + getServerUrl.SERVER;
+    private static final String SERVER = "http://" + getServerUrl.SERVER;
     private static final String PORT = ":6969";
     private static final String FABRIC_URL = SERVER + PORT + "/public/fabric-loader/fabric.jar";
     private static final String FABRIC_JSON_URL = SERVER + PORT + "/public/fabric-loader/fabric.json";
