@@ -42,6 +42,18 @@ public class Main  extends Application {
     }
 
     public static void main(String[] args) {
+
+        // TODO
+        for (String arg : args) {
+            if ("uninstall".equals(arg)) {
+                System.out.println("unistalling...");
+                return;
+            } else if ("update".equals(arg)) {
+                System.out.println("updating...");
+                return;
+            }
+        }
+
         String initServerUrl = getServerUrl.getServerUrl();
         logger.logInfo("Server URL : " + initServerUrl);
         System.out.println("Server URL : " + initServerUrl);
