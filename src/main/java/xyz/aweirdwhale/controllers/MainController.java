@@ -32,7 +32,7 @@ public class MainController {
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
 
-    public static final String SERVER = "https://" + getServerUrl.SERVER;
+    public static final String SERVER = "http://" + getServerUrl.SERVER;
     public static final String PORT = "6969";
 
     /**
@@ -92,6 +92,7 @@ public class MainController {
             logger.logError("⚠ Communication error with server : " + e.getMessage(), e);
             throw new ControllerException("Communication error with server : " + e.getMessage(), e);
         } catch (LoginException e) {
+
             throw new LaunchException(e.getMessage());
         }
 

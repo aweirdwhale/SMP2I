@@ -5594,3 +5594,112 @@ févr. 23, 2025 11:56:19 PM xyz.aweirdwhale.utils.log.logger logInfo
 INFOS: Generating ClassPath...
 févr. 23, 2025 11:56:19 PM xyz.aweirdwhale.utils.log.logger logInfo
 INFOS: ClassPath generated : /home/aweirdwhale/.smp2ix/classpaths.txt
+févr. 24, 2025 3:45:30 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Server URL : 217.154.9.109
+févr. 24, 2025 3:46:12 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Server URL : 217.154.9.109
+févr. 24, 2025 3:49:40 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Server URL : 217.154.9.109
+févr. 24, 2025 3:54:22 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Server URL : 217.154.9.109
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Login response : 200
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Connection successful.
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Creating game directory...
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: C:\Users\qomox\AppData\Roaming\.smp2ix\mods
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: C:\Users\qomox\AppData\Roaming\.smp2ix\assets
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: C:\Users\qomox\AppData\Roaming\.smp2ix\libraries
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: C:\Users\qomox\AppData\Roaming\.smp2ix\versions
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: C:\Users\qomox\AppData\Roaming\.smp2ix\versions\1.21.4
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: C:\Users\qomox\AppData\Roaming\.smp2ix\versions\fabric-loader
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Subdirectory created: C:\Users\qomox\AppData\Roaming\.smp2ix\skin
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Game directory created.
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Downloading versions...
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: [-] Downloading https://217.154.9.109:6969/public/fabric-loader/fabric.jar to C:\Users\qomox\AppData\Roaming/.smp2ix/versions/fabric-loader/fabric.jar
+févr. 24, 2025 3:54:33 PM xyz.aweirdwhale.utils.log.logger logError
+GRAVE: Ran into an issue while downloading https://217.154.9.109:6969/public/fabric-loader/fabric.jar : Unsupported or unrecognized SSL message
+javax.net.ssl.SSLException: Unsupported or unrecognized SSL message
+	at java.base/sun.security.ssl.SSLSocketInputRecord.handleUnknownRecord(SSLSocketInputRecord.java:456)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decode(SSLSocketInputRecord.java:175)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:111)
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1506)
+	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+	at java.base/sun.net.www.protocol.https.HttpsClient.afterConnect(HttpsClient.java:587)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:187)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1657)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1581)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at java.base/java.net.URL.openStream(URL.java:1317)
+	at xyz.aweirdwhale.installer.Downloader.downloadFile(Downloader.java:115)
+	at xyz.aweirdwhale.installer.Downloader.downloadVersions(Downloader.java:38)
+	at xyz.aweirdwhale.Launcher.setUp(Launcher.java:48)
+	at xyz.aweirdwhale.controllers.MainController.handleConnection(MainController.java:105)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at javafx.base@21/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1853)
+	at javafx.fxml@21/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
