@@ -5,6 +5,8 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -195,7 +197,8 @@ public class LibraryInstaller {
             System.out.println("Téléchargement de " + urlString + "à " + file.getPath() + "...");
             logger.logInfo("Downloading " + urlString + "to" + file.getPath() + "...");
 
-            URL url = new URL(urlString); //URI
+            URI uri = new URI(urlString);
+            URL url = uri.toURL(); //URI
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
@@ -213,8 +216,9 @@ public class LibraryInstaller {
                 System.out.println("❌ Erreur (" + connection.getResponseCode() + ") lors du téléchargement de " + urlString);
                 logger.logError("❌ Error (" + connection.getResponseCode() + ") While downloading " + urlString, null);
             }
-        } catch (IOException e) {
+        } catch (IOException | URISyntaxException e) {
             throw new LibraryException(e.getMessage());
         }
+
     }
 }

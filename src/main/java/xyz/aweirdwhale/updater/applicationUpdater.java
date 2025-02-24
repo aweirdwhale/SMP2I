@@ -23,7 +23,7 @@ public class applicationUpdater {
 
     private static final String TARGET = "/updater";
     private static final String PORT = "6969";
-    private static final String SERVER = "http://"+ getServerUrl.SERVER+PORT+TARGET;
+    private static final String SERVER = "https://" + getServerUrl.SERVER+PORT+TARGET;
 
     private static final String METHOD = "POST";
 

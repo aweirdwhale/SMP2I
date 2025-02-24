@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 
 public class getServerUrl {
@@ -23,7 +25,8 @@ public class getServerUrl {
         StringBuilder content = new StringBuilder();
 
         try {
-            URL url = new URL("https://raw.githubusercontent.com/aweirdwhale/SMP2I/refs/heads/hidden/server.txt");
+            URI uri = new URI("https://raw.githubusercontent.com/aweirdwhale/SMP2I/refs/heads/hidden/server.txt");
+            URL url = uri.toURL();
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
@@ -38,7 +41,7 @@ public class getServerUrl {
 
             SERVER = content.toString();
 
-        } catch (CommunicationException | ReadingException | IOException e) {
+        } catch (URISyntaxException | CommunicationException | ReadingException | IOException e) {
             throw new CommunicationException(e);
         }
 

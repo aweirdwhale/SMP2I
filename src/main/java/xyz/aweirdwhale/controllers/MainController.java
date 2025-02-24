@@ -32,7 +32,7 @@ public class MainController {
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
 
-    public static final String SERVER = "http://"+ getServerUrl.SERVER;
+    public static final String SERVER = "https://" + getServerUrl.SERVER;
     public static final String PORT = "6969";
 
     /**
