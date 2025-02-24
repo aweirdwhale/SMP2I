@@ -12,6 +12,8 @@ import xyz.aweirdwhale.utils.log.logger;
 import java.io.IOException;
 import java.util.Objects;
 
+import static xyz.aweirdwhale.uninstaller.uninstall.kaboom;
+
 public class Main  extends Application {
 
 
@@ -41,14 +43,14 @@ public class Main  extends Application {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        // TODO
         for (String arg : args) {
             if ("uninstall".equals(arg)) {
-                System.out.println("unistalling...");
+                kaboom();
                 return;
             } else if ("update".equals(arg)) {
+                //TODO
                 System.out.println("updating...");
                 return;
             }

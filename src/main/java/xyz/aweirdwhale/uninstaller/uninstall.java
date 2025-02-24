@@ -1,15 +1,12 @@
 package xyz.aweirdwhale.uninstaller;
 
 import xyz.aweirdwhale.installer.setupEnvironment;
-import xyz.aweirdwhale.utils.exceptions.DeletionException;
 import xyz.aweirdwhale.utils.exceptions.PathException;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import static java.nio.file.Files.delete;
 
 public class uninstall {
     /**
