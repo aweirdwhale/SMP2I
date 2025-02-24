@@ -1,9 +1,6 @@
 package xyz.aweirdwhale;
 
-import xyz.aweirdwhale.installer.ClassPathGenerator;
-import xyz.aweirdwhale.installer.Downloader;
-import xyz.aweirdwhale.installer.LibraryInstaller;
-import xyz.aweirdwhale.installer.setupEnvironment;
+import xyz.aweirdwhale.installer.*;
 import xyz.aweirdwhale.utils.exceptions.DownloadException;
 import xyz.aweirdwhale.utils.exceptions.LaunchException;
 import xyz.aweirdwhale.utils.log.logger;
@@ -71,7 +68,16 @@ public class Launcher {
                 ClassPathGenerator.generateClassPath(path + "/libraries", path + "/classpath.txt");
                 logger.logInfo("ClassPath generated : " + path + "/classpaths.txt");
 
-           // }
+                String os = System.getProperty("os.name").toLowerCase();
+
+                if (os.contains("win")) {
+                    logger.logInfo("Cleaning ...");
+                    ClassPathsCleaner.removeLibraryFromClassPath(path+"/classpath.txt", ";"+ path +"/libraries/org/ow2/asm/asm/9.6/asm-9.6.jar");
+                    logger.logInfo("Clean.");
+                }
+
+
+           //}
 
             //logger.logInfo("Environment already set up. Skipping setup.");
 
@@ -104,7 +110,12 @@ public class Launcher {
             }
             command.add(classpath);
 
-            command.add("net.fabricmc.loader.impl.launch.knot.KnotClient");
+            if (os.contains("win")) {
+                command.add("net.fabricmc.loader.impl.launch.knot.KnotClient");
+            } else {
+                command.add("net.fabricmc.loader.impl.launch.knot.KnotClient");
+            }
+
             command.add("--username");
             command.add(username);
             command.add("--version");
