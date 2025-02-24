@@ -1,5 +1,6 @@
 package xyz.aweirdwhale.uninstaller;
 
+import xyz.aweirdwhale.installer.setupEnvironment;
 import xyz.aweirdwhale.utils.exceptions.DeletionException;
 import xyz.aweirdwhale.utils.exceptions.PathException;
 
@@ -48,18 +49,7 @@ public class uninstall {
 
     public static String getGameDir() {
         // gets the home dir
-        String home = System.getProperty("user.home");
-        String os = System.getProperty("os.name").toLowerCase();
-        String path;
-
-        // win / unix
-        if (os.contains("win")) {
-            path = System.getenv("APPDATA") + "/.smp2ix";
-        } else {
-            path = home + "/.smp2ix";
-        }
-
-        return path;
+        return setupEnvironment.getGameDir();
     }
 
 }

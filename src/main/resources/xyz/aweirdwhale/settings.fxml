@@ -19,7 +19,7 @@
     <Label layoutX="161.0" layoutY="221.0" style="-fx-text-fill: white; -fx-font-size: 14px;" text="RAM ALLOUÉE :" />
 
     <!-- Slider pour la RAM -->
-    <Slider fx:id="ramSlider" layoutX="161.0" layoutY="285.0" prefWidth="300" style="                 -fx-control-inner-background: #0078D7;                 -fx-background-color: transparent;             " />
+    <Slider fx:id="ramSlider" layoutX="161.0" layoutY="285.0" prefWidth="300" style=" -fx-control-inner-background: #0078D7; -fx-background-color: transparent;             " />
 
 
     <!-- Label qui affiche la valeur du slider (en Go) -->

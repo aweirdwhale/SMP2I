@@ -92,7 +92,7 @@ public class MainController {
             logger.logError("⚠ Communication error with server : " + e.getMessage(), e);
             throw new ControllerException("Communication error with server : " + e.getMessage(), e);
         } catch (LoginException e) {
-            throw new RuntimeException(e);
+            throw new LaunchException(e.getMessage());
         }
 
         System.out.println(res);
@@ -102,6 +102,20 @@ public class MainController {
 
             // Play ????
             Launcher.setUp(username);
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/xyz/aweirdwhale//loggin.fxml"));
+                Parent logerrRoot = loader.load();
+
+                Stage stage = (Stage) settings.getScene().getWindow();
+
+                stage.setScene(new Scene(logerrRoot));
+                stage.show();
+
+            } catch (IOException e) {
+                throw new LaunchException(e.getMessage());
+            }
+
 
         } else {
             setInfoLabel("Attention ! Mauvais identifiants.", "red");
