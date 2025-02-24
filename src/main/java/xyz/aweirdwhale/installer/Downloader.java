@@ -13,9 +13,15 @@ import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
+
+import java.util.Enumeration;
+
 import java.util.Iterator;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 public class Downloader {
 
@@ -30,29 +36,23 @@ public class Downloader {
     // URL de base pour télécharger les assets (modifiez si votre serveur privé est différent)
     private static final String ASSET_BASE_URL = "https://resources.download.minecraft.net";
 
-    /**
-     * Télécharge la version requise du jeu sous Fabric.
-     */
+
+
     public static void downloadVersions(String path) throws DownloadException {
-        // On suppose que le répertoire path/versions/ existe
         downloadFile(FABRIC_URL, path + "/versions/fabric-loader/fabric.jar");
         downloadFile(FABRIC_JSON_URL, path + "/versions/fabric-loader/fabric.json");
-
         downloadFile(MINECRAFT_URL, path + "/versions/1.21.4/1.21.4.jar");
         downloadFile(MINECRAFT_JSON_URL, path + "/versions/1.21.4/1.21.4.json");
+
+        downloadAssets(path);
+        extractSoundsFromJar(path);
     }
 
-    /**
-     * Télécharge les librairies essentielles.
-     */
     public static void downloadLibs(String path) throws DownloadException {
         LibraryInstaller installer = new LibraryInstaller();
         installer.run(path);
     }
 
-    /**
-     * Télécharge les mods prédéfinis et crée le répertoire.
-     */
     public static void downloadMods(String path) throws DownloadException {
         String modsDir = path + "/mods";
         File modsDirFile = new File(modsDir);
@@ -91,9 +91,6 @@ public class Downloader {
         }
     }
 
-    /**
-     * Télécharge un fichier depuis l'URL spécifiée et le sauvegarde dans le chemin donné.
-     */
     public static void downloadFile(String fileUrl, String savePath) throws DownloadException {
         File file = new File(savePath);
         if (file.exists()) {
@@ -106,7 +103,6 @@ public class Downloader {
             URL url = uri.toURL();
 
             logger.logInfo("[-] Downloading " + fileUrl + " to " + savePath);
-            // Crée les dossiers nécessaires
             File parentDir = file.getParentFile();
             if (!parentDir.exists()) {
                 parentDir.mkdirs();
@@ -121,7 +117,6 @@ public class Downloader {
             throw new DownloadException("Erreur lors du téléchargement de " + fileUrl + " : " + e.getMessage());
         }
     }
-
 
 
     public static boolean verifyFileIntegrity(String filePath, String expectedHash) throws Exception {
@@ -146,24 +141,20 @@ public class Downloader {
      * @throws DownloadException en cas d'erreur de téléchargement
      */
 
+
     public static void downloadAssets(String path) throws DownloadException {
         String versionJsonPath = path + "/versions/1.21.4/1.21.4.json";
-        File versionJsonFile = new File(versionJsonPath);
-        if (!versionJsonFile.exists()) {
-            throw new DownloadException("Le fichier version JSON n'existe pas : " + versionJsonPath);
-        }
-
         try {
-            // Lire le contenu du fichier version JSON
-            String versionJsonContent = new String(Files.readAllBytes(Paths.get(versionJsonPath)));
-            JSONObject versionJson = new JSONObject(versionJsonContent);
+            String jsonContent = new String(Files.readAllBytes(Paths.get(versionJsonPath)));
+            JSONObject versionJson = new JSONObject(jsonContent);
 
-            // Récupérer l'objet assetIndex
             JSONObject assetIndex = versionJson.getJSONObject("assetIndex");
             String assetIndexUrl = assetIndex.getString("url");
             String assetIndexId = assetIndex.getString("id");
 
-            logger.logInfo("Asset index URL: " + assetIndexUrl);
+            String assetIndexPath = path + "/assets/indexes/" + assetIndexId + ".json";
+            downloadFile(assetIndexUrl, assetIndexPath);
+
 
             // Télécharger l'asset index dans un répertoire temporaire
             String assetsDir = path + "/assets/indexes";
@@ -220,4 +211,35 @@ public class Downloader {
         }
     }
 
+
+    private static void extractSoundsFromJar(String path) throws DownloadException {
+        String jarPath = path + "/versions/1.21.4/1.21.4.jar";
+        String soundsDir = path + "/assets/minecraft/sounds";
+
+        try (JarFile jar = new JarFile(jarPath)) {
+            Enumeration<JarEntry> entries = jar.entries();
+
+            while (entries.hasMoreElements()) {
+                JarEntry entry = entries.nextElement();
+                String name = entry.getName();
+
+                if (name.startsWith("assets/minecraft/sounds/") && !entry.isDirectory()) {
+                    File dest = new File(soundsDir, name.replace("assets/minecraft/sounds/", ""));
+                    dest.getParentFile().mkdirs();
+
+                    try (InputStream is = jar.getInputStream(entry);
+                         OutputStream os = new FileOutputStream(dest)) {
+                        byte[] buffer = new byte[4096];
+                        int bytesRead;
+                        while ((bytesRead = is.read(buffer)) != -1) {
+                            os.write(buffer, 0, bytesRead);
+                        }
+                    }
+                    logger.logInfo("Son extrait: " + name);
+                }
+            }
+        } catch (IOException e) {
+            throw new DownloadException("Erreur extraction sons: " + e.getMessage());
+        }
+    }
 }
