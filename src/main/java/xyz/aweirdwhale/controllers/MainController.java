@@ -80,22 +80,16 @@ public class MainController {
             System.out.println(SERVER);
             res = login(username, hashed, SERVER);
 
-        } catch (CommunicationException e) {
+        } catch (CommunicationException | LoginException e) {
             setInfoLabel("⚠ Erreur de communication avec le serveur.", "red");
             logger.logError("⚠ Communication error with server : " + e.getMessage(), e);
             throw new ControllerException("Communication error with server : " + e.getMessage(), e);
-        } catch (LoginException e) {
-
-            throw new LaunchException(e.getMessage());
         }
-
         System.out.println(res);
         if (res==200) {
-            setInfoLabel("Mise en place de l'environnement..", "green");
-            logger.logInfo("Connection successful.");
 
-            // Play ????
-            Launcher.setUp(username);
+
+            setInfoLabel("Mise en place de l'environnement..", "green");
 
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/xyz/aweirdwhale//loggin.fxml"));
@@ -109,6 +103,12 @@ public class MainController {
             } catch (IOException e) {
                 throw new LaunchException(e.getMessage());
             }
+
+
+            logger.logInfo("Connection successful.");
+
+            // Play ????
+            Launcher.setUp(username);
 
 
         } else {
