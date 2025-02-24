@@ -1,8 +1,12 @@
-[03:38:33] [WARN] [FabricLoader/Knot]: Class path entries reference missing files: versions/fabric-loader/fabric.jar - the game may not load properly!
-[03:38:33] [ERROR] [FabricLoader/GameProvider]: Minecraft game provider couldn't locate the game! The game may be absent from the class path, lacks some expected files, suffers from jar corruption or is of an unsupported variety/version.
-[03:38:34] [ERROR] [FabricLoader/]: Uncaught exception in thread "main"
-java.lang.RuntimeException: Minecraft game provider couldn't locate the game! The game may be absent from the class path, lacks some expected files, suffers from jar corruption or is of an unsupported variety/version.
-	at net.fabricmc.loader.impl.launch.knot.Knot.createGameProvider(Knot.java:212)
-	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:130)
+[17:13:54] [ERROR] [FabricLoader/]: Uncaught exception in thread "main"
+java.nio.file.InvalidPathException: Illegal char <:> at index 72: C:\Users\gouss\AppData\Roaming/.smp2ix/versions/fabric-loader/fabric.jar:C:\Users\gouss\AppData\Roaming\.smp2ix\libraries\ca\weblite\java-objc-bridge\1.1\java-objc-bridge-1.1.jar
+	at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:182)
+	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:153)
+	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
+	at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
+	at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:232)
+	at java.base/java.nio.file.Path.of(Path.java:148)
+	at java.base/java.nio.file.Paths.get(Paths.java:69)
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:116)
 	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68)
 	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)

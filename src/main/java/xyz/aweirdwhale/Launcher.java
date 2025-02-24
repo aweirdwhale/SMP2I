@@ -67,9 +67,9 @@ public class Launcher {
                 logger.logInfo("Mods downloaded.");
 
                 //generating ClassPath
-                logger.logInfo("Generating ClassPath...");
-                ClassPathGenerator.generateClassPath(path + "/libraries", path + "/classpath.txt");
-                logger.logInfo("ClassPath generated : " + path + "/classpaths.txt");
+                //logger.logInfo("Generating ClassPath...");
+                //ClassPathGenerator.generateClassPath(path + "/libraries", path + "/classpath.txt");
+                //logger.logInfo("ClassPath generated : " + path + "/classpaths.txt");
 
            // }
 
@@ -94,7 +94,14 @@ public class Launcher {
 
             // Assuming the content of <path+classes.b004> is read into a variable called classpathContent
             String classpathContent = new String(Files.readAllBytes(Paths.get(ClassPaths)));
-            String classpath = path + "/versions/fabric-loader/fabric.jar:" + classpathContent.trim();
+            String classpath;
+            String os = System.getProperty("os.name").toLowerCase();
+
+            if (os.contains("win")) {
+                classpath = path + "/versions/fabric-loader/fabric.jar;" + classpathContent.trim();
+            } else {
+                classpath = path + "/versions/fabric-loader/fabric.jar:" + classpathContent.trim();
+            }
             command.add(classpath);
 
             command.add("net.fabricmc.loader.impl.launch.knot.KnotClient");

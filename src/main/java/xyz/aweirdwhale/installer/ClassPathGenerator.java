@@ -35,8 +35,15 @@ public class ClassPathGenerator {
                     .filter(string -> string.endsWith(".jar"))
                     .collect(Collectors.toList());
 
-            // Construire le classpath en joignant les chemins avec ":"
-            String classpath = String.join(":", jarFiles);
+            // Construire le classpath en joignant les chemins avec ":" pour unix et ; pour windows
+            String classpath;
+            String os = System.getProperty("os.name").toLowerCase();
+
+            if (os.contains("win")) {
+                classpath = String.join(";", jarFiles);
+            } else {
+                classpath = String.join(":", jarFiles);
+            }
 
             // Écrire le résultat dans un fichier
             Files.write(Paths.get(outputFile), classpath.getBytes());
