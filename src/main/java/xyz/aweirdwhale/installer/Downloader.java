@@ -184,8 +184,13 @@ public class Downloader {
                 }
                 String assetLocalPath = assetLocalDirPath + "/" + hash;
                 // Téléchargement de l'asset
-                logger.logInfo("Downloading asset: " + assetName + " from " + assetDownloadUrl);
-                downloadFile(assetDownloadUrl, assetLocalPath);
+                try {
+                    logger.logInfo("Downloading asset: " + assetName + " from " + assetDownloadUrl);
+                    downloadFile(assetDownloadUrl, assetLocalPath);
+                } catch (DownloadException e) {
+                    logger.logError("Error while downloading asset: " + assetName + " : " + e.getMessage(), e);
+                    // Continue to the next asset
+                }
             }
 
         } catch (IOException | JSONException e) {

@@ -6327,3 +6327,5 @@ java.io.IOException: Server returned HTTP response code: 400 for URL: http://res
 	at javafx.graphics@21/com.sun.glass.ui.gtk.GtkApplication.lambda$runLoop$10(GtkApplication.java:263)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
+févr. 24, 2025 3:55:01 PM xyz.aweirdwhale.utils.log.logger logInfo
+INFOS: Server URL : 217.154.9.109
