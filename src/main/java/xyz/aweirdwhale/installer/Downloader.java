@@ -2,7 +2,6 @@ package xyz.aweirdwhale.installer;
 
 import org.json.JSONObject;
 import org.json.JSONArray;
-import org.json.JSONException;
 import xyz.aweirdwhale.utils.exceptions.DownloadException;
 import xyz.aweirdwhale.utils.log.logger;
 
@@ -14,6 +13,8 @@ import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.DigestInputStream;
+import java.security.MessageDigest;
 import java.util.Iterator;
 
 public class Downloader {
@@ -27,7 +28,7 @@ public class Downloader {
     private static final String MODS_JSON_URL = SERVER + PORT + "/public/mods.json";
 
     // URL de base pour télécharger les assets (modifiez si votre serveur privé est différent)
-    private static final String ASSET_BASE_URL = "http://resources.download.minecraft.net";
+    private static final String ASSET_BASE_URL = "https://resources.download.minecraft.net";
 
     /**
      * Télécharge la version requise du jeu sous Fabric.
@@ -121,11 +122,30 @@ public class Downloader {
         }
     }
 
+
+
+    public static boolean verifyFileIntegrity(String filePath, String expectedHash) throws Exception {
+        MessageDigest digest = MessageDigest.getInstance("SHA-1");
+        try (InputStream fis = new FileInputStream(filePath);
+             DigestInputStream dis = new DigestInputStream(fis, digest)) {
+            while (dis.read() != -1) {} // Lire le fichier
+        }
+        byte[] hashBytes = digest.digest();
+        StringBuilder hashHex = new StringBuilder();
+        for (byte b : hashBytes) {
+            hashHex.append(String.format("%02x", b));
+        }
+        return hashHex.toString().equals(expectedHash);
+    }
+
+
+
     /**
      * Télécharge les assets de Minecraft en se basant sur le fichier version JSON.
      * @param path chemin de base de l'installation
      * @throws DownloadException en cas d'erreur de téléchargement
      */
+
     public static void downloadAssets(String path) throws DownloadException {
         String versionJsonPath = path + "/versions/1.21.4/1.21.4.json";
         File versionJsonFile = new File(versionJsonPath);
@@ -147,10 +167,7 @@ public class Downloader {
 
             // Télécharger l'asset index dans un répertoire temporaire
             String assetsDir = path + "/assets/indexes";
-            File assetsDirFile = new File(assetsDir);
-            if (!assetsDirFile.exists()) {
-                assetsDirFile.mkdirs();
-            }
+            new File(assetsDir).mkdirs();
             String assetIndexFilePath = assetsDir + "/" + assetIndexId + ".json";
             downloadFile(assetIndexUrl, assetIndexFilePath);
 
@@ -161,34 +178,46 @@ public class Downloader {
 
             // Télécharger chaque asset
             String objectsDirPath = path + "/assets/objects";
-            File objectsDir = new File(objectsDirPath);
-            if (!objectsDir.exists()) {
-                objectsDir.mkdirs();
-            }
+            new File(objectsDirPath).mkdirs();
 
             Iterator<String> keys = objects.keys();
             while (keys.hasNext()) {
                 String assetName = keys.next();
                 JSONObject assetInfo = objects.getJSONObject(assetName);
                 String hash = assetInfo.getString("hash");
-                // Construction de l'URL de téléchargement pour l'asset
-                // Exemple standard : baseURL + "/" + first2chars(hash) + "/" + hash
                 String assetDownloadUrl = ASSET_BASE_URL + "/" + hash.substring(0, 2) + "/" + hash;
-                // Chemin local de sauvegarde
                 String assetLocalDirPath = objectsDirPath + "/" + hash.substring(0, 2);
-                File assetLocalDir = new File(assetLocalDirPath);
-                if (!assetLocalDir.exists()) {
-                    assetLocalDir.mkdirs();
-                }
+                new File(assetLocalDirPath).mkdirs();
                 String assetLocalPath = assetLocalDirPath + "/" + hash;
-                // Téléchargement de l'asset
-                logger.logInfo("Downloading asset: " + assetName + " from " + assetDownloadUrl);
-                downloadFile(assetDownloadUrl, assetLocalPath);
-            }
 
-        } catch (IOException | JSONException e) {
+                // Vérifier l'intégrité avant téléchargement
+                File assetFile = new File(assetLocalPath);
+                if (assetFile.exists()) {
+                    logger.logInfo("Asset already verified: " + assetName);
+                    continue;
+                }
+
+                // Téléchargement de l'asset
+                try {
+                    logger.logInfo("Downloading asset: " + assetName + " from " + assetDownloadUrl);
+                    downloadFile(assetDownloadUrl, assetLocalPath);
+
+                    // Vérifier l'intégrité après téléchargement
+                    if (!verifyFileIntegrity(assetLocalPath, hash)) {
+                        logger.logInfo("Integrity check failed for: " + assetName + ", redownloading...");
+                        assetFile.delete();
+                        downloadFile(assetDownloadUrl, assetLocalPath);
+                    }
+
+                    logger.logInfo("Integrity check passed for: " + assetName);
+                } catch (DownloadException e) {
+                    logger.logError("Error while downloading asset: " + assetName + " : " + e.getMessage(), e);
+                }
+            }
+        } catch (Exception e) {
             logger.logError("Error while downloading assets: " + e.getMessage(), e);
             throw new DownloadException("Erreur lors du téléchargement des assets : " + e.getMessage());
         }
     }
+
 }

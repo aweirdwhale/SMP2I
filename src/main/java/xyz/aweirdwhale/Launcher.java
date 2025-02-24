@@ -119,13 +119,13 @@ public class Launcher {
             command.add("--username");
             command.add(username);
             command.add("--version");
-            command.add("fabric-loader");
+            command.add("1.21.4");
             command.add("--gameDir");
             command.add(gameDir);
             command.add("--assetsDir");
-            command.add("assets");
+            command.add("/assets/");
             command.add("--assetIndex");
-            command.add("1.21");
+            command.add("19");
             command.add("--accessToken");
             command.add("Q&O Les Goats");
 

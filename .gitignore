@@ -44,3 +44,4 @@ bin/
 ### Minecraft ###
 logs/
 config/voicechat/
+application.log
