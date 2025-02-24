@@ -56,6 +56,11 @@ public class Launcher {
                 logger.logInfo("Deleting the old asm");
                 LibraryInstaller.deleteThisFuckingAsm(path);
 
+                // télécharge les assets
+                logger.logInfo("Downloading assets...");
+                xyz.aweirdwhale.installer.Downloader.downloadAssets(path);
+                logger.logInfo("Assets downloaded.");
+
                 // télécharge les mods
                 logger.logInfo("Downloading mods...");
                 xyz.aweirdwhale.installer.Downloader.downloadMods(path);

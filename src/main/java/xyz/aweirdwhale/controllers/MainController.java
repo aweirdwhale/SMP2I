@@ -39,13 +39,6 @@ public class MainController {
      * Assuming the existance of server/public/mods.json
      * **/
 
-//    private static final String[] MOD_URLS = {
-//            "https://cdn.modrinth.com/data/PtjYWJkn/versions/f4TfteNb/sodium-extra-fabric-0.6.1%2Bmc1.21.4.jar"
-//    };
-
-
-
-
     // Feedback bof mais c'est au moins ça
     public void setInfoLabel(String info, String color){
         loginInfoLabel.setText(info);
