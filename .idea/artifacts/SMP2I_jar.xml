@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SMP2I:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SMP2I_jar</output-path>
+    <root id="archive" name="SMP2I.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="SMP2I.main" />
+    </root>
+  </artifact>
+</component>
