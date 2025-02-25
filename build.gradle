@@ -9,14 +9,9 @@ plugins {
 group 'mp2i.sncf'
 version '1.0-SNAPSHOT'
 
-mainClassName = 'mp2i.sncf.Main'
-
 jar {
-    // On inclut la classe Main dans le MANIFEST
     manifest {
-        attributes(
-                'Main-Class': mainClassName
-        )
+        attributes 'Main-Class': 'mp2i.sncf.Main'
     }
 }
 
