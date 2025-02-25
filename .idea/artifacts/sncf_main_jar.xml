@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="sncf.main:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/sncf_main_jar</output-path>
+    <root id="archive" name="sncf.main.jar">
+      <element id="module-output" name="sncf.main" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-graphics/17.0.6/a71a20fc765c578c17e6bd6525c029b03286ff5e/javafx-graphics-17.0.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-controls/17.0.6/8a9b91d717ec8bcdb179b91ae8a4f1137756fe3a/javafx-controls-17.0.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-fxml/17.0.6/5724aedc415683e62eeab3a3875550aa814c84fd/javafx-fxml-17.0.6-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-base/17.0.6/808b77ecf79be87b304a78fa9fffad805bfdb9f5/javafx-base-17.0.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-graphics/17.0.6/14326bf575b927d3c31a775f74bcf754ced35353/javafx-graphics-17.0.6-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.json/json/20250107/a1b5f0b5a1ce018b93a691c57ffc7d141b3a10f1/json-20250107.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-controls/17.0.6/c95b460be3bc372060ff32d0c666c1233c3e8400/javafx-controls-17.0.6-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-base/17.0.6/78ccb38688b70acc6b59718daca8bdb91f99db57/javafx-base-17.0.6-win.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

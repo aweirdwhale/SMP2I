@@ -3,9 +3,6 @@ package mp2i.sncf.installer;
 import java.io.*;
 
 import org.json.*;
-
-
-
 import java.net.URI;
 import java.net.URL;
 import java.nio.channels.Channels;
