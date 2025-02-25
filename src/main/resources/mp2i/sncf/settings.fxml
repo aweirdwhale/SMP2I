@@ -13,7 +13,7 @@
             style="-fx-background-color: #1e1e1e;"
             xmlns="http://javafx.com/javafx/17.0.12"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="xyz.aweirdwhale.controllers.SettingsController">
+            fx:controller="mp2i.sncf.controllers.SettingsController">
 
     <!-- Header -->
     <ImageView fitHeight="122.0" fitWidth="350.0" layoutX="465.0" layoutY="29.0">

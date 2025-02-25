@@ -33,7 +33,7 @@ public class Main extends Application {
 
         scene.getRoot().setStyle("-fx-background-color: #222222; -fx-label-color: #ff0000;");
         stage.setResizable(false);
-        stage.getIcons().add(new Image("xyz/aweirdwhale/images/icons/icon.png")); // fixed icon
+        stage.getIcons().add(new Image("mp2i/sncf/images/icons/icon.png")); // fixed icon
         stage.setTitle("SMP2I");
         stage.setScene(scene);
         stage.show();

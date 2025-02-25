@@ -88,7 +88,7 @@ public class MainController {
             setInfoLabel("Mise en place de l'environnement..", "green");
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/xyz/aweirdwhale//loggin.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/mp2i/sncf//loggin.fxml"));
                 Parent logerrRoot = loader.load();
 
                 Stage stage = (Stage) settings.getScene().getWindow();
@@ -120,14 +120,14 @@ public class MainController {
     public void handlesettings(ActionEvent actionEvent)  {
         try {
             // Charge le fichier FXML de l'écran de configuration
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/xyz/aweirdwhale/settings.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/mp2i/sncf/settings.fxml"));
             Parent settingsRoot = loader.load();
 
             Scene scene = new Scene(settingsRoot);
             // Assurez-vous que le fichier CSS est bien placé dans src/main/resources/styles/settings.css
 
 
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/xyz/aweirdwhale/styles/settings.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/mp2i/sncf/styles/settings.css")).toExternalForm());
             // On peut éventuellement définir un fond global ici, mais c'est mieux de le faire via le CSS
             scene.getRoot().setStyle("-fx-background-color: #222222;");
 

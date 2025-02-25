@@ -43,9 +43,7 @@ public class SettingsController {
         ramValueLabel.setText((int) ramSlider.getValue() + " Go");
 
         // Mettre à jour le label quand la valeur du slider change
-        ramSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            ramValueLabel.setText(newValue.intValue() + " Go");
-        });
+        ramSlider.valueProperty().addListener((observable, oldValue, newValue) -> ramValueLabel.setText(newValue.intValue() + " Go"));
 
         // Rendre le champ gameFolder non éditable
         gameFolderField.setEditable(false);
@@ -74,12 +72,12 @@ public class SettingsController {
     public void handleMenu(ActionEvent event)  {
         try {
             // Correction du chemin du FXML (suppression du double slash)
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/xyz/aweirdwhale/main.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/mp2i/sncf/main.fxml"));
             Parent mainRoot = loader.load();
             Scene scene = new Scene(mainRoot);
 
 
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/xyz/aweirdwhale/styles/main.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/mp2i/sncf/styles/main.css")).toExternalForm());
 
             Stage stage = (Stage) back.getScene().getWindow();
             stage.setTitle("SMP2I");
