@@ -33,8 +33,12 @@ public class Main extends Application {
 
         scene.getRoot().setStyle("-fx-background-color: #222222; -fx-label-color: #ff0000;");
         stage.setResizable(false);
-        stage.getIcons().add(new Image("mp2i/sncf/images/icons/icon.png")); // fixed icon
-        stage.setTitle("SMP2I");
+        try {
+            stage.getIcons().add(new Image("mp2i/sncf/images/icons/icon.png")); // fixed icon
+            stage.setTitle("SMP2I");
+        } catch (Exception e) {
+            System.out.println("Erreur de chargement du logo ou du titre : " + e.getMessage());
+        }
         stage.setScene(scene);
         stage.show();
 

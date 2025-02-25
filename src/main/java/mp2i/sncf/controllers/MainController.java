@@ -88,13 +88,13 @@ public class MainController {
             setInfoLabel("Mise en place de l'environnement..", "green");
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/mp2i/sncf//loggin.fxml"));
-                Parent logerrRoot = loader.load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/mp2i/sncf/loggin.fxml"));
+                Parent root = loader.load();
 
                 Stage stage = (Stage) settings.getScene().getWindow();
 
                 stage.setTitle("SMP2I Log");
-                stage.setScene(new Scene(logerrRoot));
+                stage.setScene(new Scene(root));
                 stage.show();
 
             } catch (IOException _) {

@@ -185,7 +185,7 @@ public class LibraryInstaller {
                 parentDir.mkdirs();
             }
 
-            System.out.println("Téléchargement de " + urlString + "à " + file.getPath() + "...");
+            System.out.println("⌛ Téléchargement de " + urlString + " à " + file.getPath() + "...");
 
             URI uri = new URI(urlString);
             URL url = uri.toURL(); //URI
@@ -201,6 +201,8 @@ public class LibraryInstaller {
                         out.write(buffer, 0, bytesRead);
                     }
                 }
+
+                System.out.println("✔ Fichier téléchargé : " + file.getPath());
             } else {
                 System.out.println("❌ Erreur (" + connection.getResponseCode() + ") lors du téléchargement de " + urlString);
             }
