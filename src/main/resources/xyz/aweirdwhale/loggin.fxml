@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
 <AnchorPane prefHeight="400" prefWidth="600" style="-fx-background-color: #1e1e1e;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xyz.aweirdwhale.controllers.LoginController">
     <!-- Éléments de connexion -->
     <Label layoutX="212.0" layoutY="31.0" style="-fx-text-fill: white; -fx-font-size: 20px;" text="LOG DU LAUNCHER" />

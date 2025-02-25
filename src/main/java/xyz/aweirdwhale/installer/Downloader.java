@@ -1,7 +1,7 @@
 package xyz.aweirdwhale.installer;
 
-import org.json.JSONObject;
 import org.json.JSONArray;
+import org.json.JSONObject;
 import xyz.aweirdwhale.utils.exceptions.DownloadException;
 import xyz.aweirdwhale.utils.log.logger;
 
@@ -13,12 +13,9 @@ import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
-
 import java.util.Enumeration;
-
 import java.util.Iterator;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;

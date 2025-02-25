@@ -9,12 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
 import javafx.stage.Stage;
 import xyz.aweirdwhale.Launcher;
-
 import xyz.aweirdwhale.installer.getServerUrl;
-import xyz.aweirdwhale.utils.exceptions.*;
+import xyz.aweirdwhale.utils.exceptions.CommunicationException;
+import xyz.aweirdwhale.utils.exceptions.ControllerException;
+import xyz.aweirdwhale.utils.exceptions.LaunchException;
+import xyz.aweirdwhale.utils.exceptions.LoginException;
 import xyz.aweirdwhale.utils.log.logger;
 import xyz.aweirdwhale.utils.security.HashPwd;
 

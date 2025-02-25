@@ -2,6 +2,8 @@ package xyz.aweirdwhale.installer;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import xyz.aweirdwhale.utils.exceptions.LibraryException;
+import xyz.aweirdwhale.utils.log.logger;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -11,9 +13,6 @@ import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import xyz.aweirdwhale.utils.exceptions.LibraryException;
-import xyz.aweirdwhale.utils.log.logger;
 
 public class LibraryInstaller {
 

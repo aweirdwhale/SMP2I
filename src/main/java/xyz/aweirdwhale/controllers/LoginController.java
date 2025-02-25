@@ -3,6 +3,7 @@ package xyz.aweirdwhale.controllers;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
+
 import java.util.logging.*;
 
 public class LoginController {

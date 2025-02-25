@@ -1,6 +1,6 @@
 package xyz.aweirdwhale.updater;
 
-import org.json.*;
+import org.json.JSONObject;
 import xyz.aweirdwhale.installer.getServerUrl;
 import xyz.aweirdwhale.utils.exceptions.UpdaterException;
 
