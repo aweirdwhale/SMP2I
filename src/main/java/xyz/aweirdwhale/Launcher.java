@@ -6,8 +6,10 @@ import xyz.aweirdwhale.utils.exceptions.LaunchException;
 import xyz.aweirdwhale.utils.log.logger;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -90,8 +92,28 @@ public class Launcher {
         }
     }
 
+
     public static void launchMinecraft(String maxRam, String minRam, String ClassPaths, String username, String gameDir, String path) throws LaunchException {
         try {
+
+            /*
+            * TESTS : crée un fichier json blank
+            * dir/assets/indexes/blank.json
+            * */
+
+            String filePath = gameDir+"/assets/indexes/blank.json";
+            File file = new File(filePath);
+
+            // Créer le fichier et écrire "{}"
+            FileWriter writer = new FileWriter(file);
+
+            writer.write("{}");
+            writer.close();
+
+
+
+
+
             List<String> command = new ArrayList<>();
             command.add("java");
             command.add("-Xmx"+maxRam+"G");
@@ -110,11 +132,7 @@ public class Launcher {
             }
             command.add(classpath);
 
-            if (os.contains("win")) {
-                command.add("net.fabricmc.loader.impl.launch.knot.KnotClient");
-            } else {
-                command.add("net.fabricmc.loader.impl.launch.knot.KnotClient");
-            }
+            command.add("net.fabricmc.loader.impl.launch.knot.KnotClient");
 
             command.add("--username");
             command.add(username);
@@ -123,7 +141,7 @@ public class Launcher {
             command.add("--gameDir");
             command.add(gameDir);
             command.add("--assetsDir");
-            command.add("/assets/");
+            command.add(gameDir+"/assets");
             command.add("--assetIndex");
             command.add("19");
             command.add("--accessToken");
