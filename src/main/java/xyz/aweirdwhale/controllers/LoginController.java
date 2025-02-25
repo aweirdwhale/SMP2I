@@ -45,12 +45,12 @@ public class LoginController {
 
         @Override
         public void flush() {
-            // Pas nécessaire pour un TextArea
+
         }
 
         @Override
         public void close() throws SecurityException {
-            // Aucun nettoyage particulier requis
+
         }
     }
 }

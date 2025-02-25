@@ -20,6 +20,7 @@ import xyz.aweirdwhale.utils.log.logger;
 import xyz.aweirdwhale.utils.security.HashPwd;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static xyz.aweirdwhale.utils.security.Login.login;
 
@@ -29,31 +30,32 @@ public class MainController {
     public Button changeSkinButton;
     public Button settings;
 
-    @FXML private Label loginInfoLabel;
-    @FXML private TextField usernameField;
-    @FXML private PasswordField passwordField;
+    @FXML
+    private Label loginInfoLabel;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
 
     public static final String SERVER = "http://" + getServerUrl.SERVER;
     public static final String PORT = "6969";
 
-    /**
-     * Assuming the existance of server/public/mods.json
-     * **/
 
     // Feedback bof mais c'est au moins ça
-    public void setInfoLabel(String info, String color){
+    public void setInfoLabel(String info, String color) {
         loginInfoLabel.setText(info);
         loginInfoLabel.setStyle("-fx-text-fill: " + color + ";");
     }
 
 
     // enleve les espaces avant et apres le nom d'utilisateur
-    public String usernamePostProcessing(String username){
+    public String usernamePostProcessing(String username) {
         return username.trim();
     }
 
     /**
      * S'occupe de connecter le joeur vers le serveur demandé avec c'est info. Gère les différents problèmes.
+     *
      * @param actionEvent l'action effectuer (never use)
      */
     @FXML
@@ -75,7 +77,6 @@ public class MainController {
         String hashed = HashPwd.hash(password);
 
 
-
         int res; // init la réponse (http status code)
         try {
             System.out.println(SERVER);
@@ -87,7 +88,7 @@ public class MainController {
             throw new ControllerException("Communication error with server : " + e.getMessage(), e);
         }
         System.out.println(res);
-        if (res==200) {
+        if (res == 200) {
 
 
             setInfoLabel("Mise en place de l'environnement..", "green");
@@ -98,6 +99,7 @@ public class MainController {
 
                 Stage stage = (Stage) settings.getScene().getWindow();
 
+                stage.setTitle("SMP2I Log");
                 stage.setScene(new Scene(logerrRoot));
                 stage.show();
 
@@ -127,20 +129,24 @@ public class MainController {
     public void handlesettings(ActionEvent actionEvent) throws ControllerException {
         try {
             // Charge le fichier FXML de l'écran de configuration
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/xyz/aweirdwhale//settings.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/xyz/aweirdwhale/settings.fxml"));
             Parent settingsRoot = loader.load();
 
-            // Récupère la fenêtre (Stage) actuelle à partir du bouton
-            Stage stage = (Stage) settings.getScene().getWindow();
+            Scene scene = new Scene(settingsRoot);
+            // Assurez-vous que le fichier CSS est bien placé dans src/main/resources/styles/settings.css
+
+
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/xyz/aweirdwhale/styles/settings.css")).toExternalForm());
+            // On peut éventuellement définir un fond global ici, mais c'est mieux de le faire via le CSS
+            scene.getRoot().setStyle("-fx-background-color: #222222;");
 
             // Remplace la scène de la fenêtre par la nouvelle
-            stage.setScene(new Scene(settingsRoot));
+            Stage stage = (Stage) settings.getScene().getWindow();
+            stage.setTitle("SMP2I Settings");
+            stage.setScene(scene);
             stage.show();
-
         } catch (IOException e) {
             throw new ControllerException("Cannot load FXML file", e);
-
         }
-
     }
 }

@@ -1,45 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane maxHeight="720.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #1e1e1e;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xyz.aweirdwhale.controllers.SettingsController">
 
+<AnchorPane maxHeight="720.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0"
+            style="-fx-background-color: #1e1e1e;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="xyz.aweirdwhale.controllers.SettingsController">
+
+    <!-- Header -->
     <ImageView fitHeight="122.0" fitWidth="350.0" layoutX="465.0" layoutY="29.0">
-        <Image url="@images/header.png" />
+        <Image url="@images/header.png"/>
     </ImageView>
 
-    <ImageView fitHeight="340.0" fitWidth="326.0" layoutX="824.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@images/skin_placeholder.png" />
+    <!-- Aperçu du skin -->
+    <ImageView fitHeight="340.0" fitWidth="326.0" layoutX="824.0" layoutY="197.0"
+               pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/skin_placeholder.png"/>
     </ImageView>
 
     <!-- Label: "RAM ALLOUÉE :" -->
-    <Label layoutX="161.0" layoutY="221.0" style="-fx-text-fill: white; -fx-font-size: 14px;" text="RAM ALLOUÉE :" />
+    <Label layoutX="161.0" layoutY="221.0"
+           style="-fx-text-fill: white; -fx-font-size: 14px;"
+           text="RAM ALLOUÉE :"/>
 
     <!-- Slider pour la RAM -->
-    <Slider fx:id="ramSlider" layoutX="161.0" layoutY="285.0" prefWidth="300" style=" -fx-control-inner-background: #0078D7; -fx-background-color: transparent;             " />
+    <Slider fx:id="ramSlider" layoutX="161.0" layoutY="285.0" prefWidth="300"
+            style="-fx-control-inner-background: #0078D7; -fx-background-color: transparent;"/>
 
-
-    <!-- Label qui affiche la valeur du slider (en Go) -->
-    <Label fx:id="ramValueLabel" layoutX="161.0" layoutY="324.0" style="-fx-text-fill: white; -fx-font-size: 12px;" text="2 Go" />
+    <!-- Label affichant la valeur du slider -->
+    <Label fx:id="ramValueLabel" layoutX="161.0" layoutY="324.0"
+           style="-fx-text-fill: white; -fx-font-size: 12px;"
+           text="2 Go"/>
 
     <!-- Label: "DOSSIER DU JEU :" -->
-    <Label layoutX="161.0" layoutY="396.0" style="-fx-text-fill: white; -fx-font-size: 14px;" text="DOSSIER DU JEU :" />
+    <Label layoutX="161.0" layoutY="396.0"
+           style="-fx-text-fill: white; -fx-font-size: 14px;"
+           text="DOSSIER DU JEU :"/>
 
-    <!-- Champ pour le chemin du dossier -->
-    <TextField fx:id="gameFolderField" layoutX="161.0" layoutY="453.0" prefWidth="250" style="-fx-text-fill: black;" />
+    <!-- Champ pour afficher le chemin du dossier (non éditable) -->
+    <TextField fx:id="gameFolderField" layoutX="161.0" layoutY="453.0" prefWidth="250"
+               style="-fx-text-fill: black;" editable="false"/>
 
     <!-- Bouton pour ouvrir le dossier -->
-    <Button fx:id="openFolderButton" layoutX="439.0" layoutY="453.0" style="-fx-background-color: #2c2c2c; -fx-text-fill: white;" text="PARCOURIR" />
+    <Button fx:id="openFolderButton" onAction="#handleOpenFolder" layoutX="439.0" layoutY="453.0"
+            style="-fx-background-color: #2c2c2c; -fx-text-fill: white;"
+            text="PARCOURIR"/>
 
     <!-- Bouton pour changer de skin -->
-    <Button fx:id="changeSkinButton" layoutX="929.0" layoutY="572.0" onAction="#handleChangeSkin" text="CHANGER DE SKIN" />
-   <Button alignment="CENTER" layoutX="161.0" layoutY="65.0" mnemonicParsing="false" text="X" textAlignment="CENTER">
-      <font>
-         <Font name="Arial Bold" size="22.0" />
-      </font>
-   </Button>
+    <Button fx:id="changeSkinButton" onAction="#handleChangeSkin" layoutX="929.0" layoutY="572.0"
+            style="-fx-background-color: #2c2c2c; -fx-text-fill: white;"
+            text="CHANGER DE SKIN"/>
+
+    <!-- Bouton de retour -->
+    <Button fx:id="back" onAction="#handleMenu" layoutX="161.0" layoutY="65.0"
+            mnemonicParsing="false" text="X" textAlignment="CENTER" alignment="CENTER">
+        <font>
+            <Font name="Arial Bold" size="22.0"/>
+        </font>
+    </Button>
 
 </AnchorPane>
+
