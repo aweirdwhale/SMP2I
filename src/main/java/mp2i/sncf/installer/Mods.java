@@ -38,9 +38,9 @@ public class Mods {
                 for (int i = 0; i < mods.length(); i++) {
                     String modUrl = mods.getString(i);
                     String modName = modUrl.substring(modUrl.lastIndexOf('/') + 1);
-                    String modPath = modDir + "/" + modName;
+                    String modPath = modDir + "/mods/" + modName;
 
-                    downloadFile(modUrl, modPath);
+                    downloadFile(modUrl, modPath, false);
                 }
             }
         } catch (IOException e) {

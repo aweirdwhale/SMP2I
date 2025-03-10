@@ -24,10 +24,11 @@ public class Login {
                 String METHOD = "POST";
                 HttpURLConnection connection = getHttpURLConnection(server + PORT + TARGET, request_body, METHOD);
                 return connection.getResponseCode();
-            } catch (IOException | URISyntaxException e) {
-                throw new RuntimeException(e);
+            } catch (IOException | URISyntaxException _) {
+                System.out.println("⤫ Erreur de connexion (pas de wifi ou serv éteint demande @Aweirdwhale en cas de doute)");
             }
 
+            return 0;
         }
 
 }

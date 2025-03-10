@@ -26,10 +26,10 @@ public class Downloader {
     private static final String ASSET_BASE_URL = "https://resources.download.minecraft.net";
 
     public static void downloadVersions(String path) {
-        downloadFile(FABRIC_URL, path + "/versions/fabric-loader/fabric.jar");
-        downloadFile(FABRIC_JSON_URL, path + "/versions/fabric-loader/fabric.json");
-        downloadFile(MINECRAFT_URL, path + "/versions/1.21.4/1.21.4.jar");
-        downloadFile(MINECRAFT_JSON_URL, path + "/versions/1.21.4/1.21.4.json");
+        downloadFile(FABRIC_URL, path + "/versions/fabric-loader/fabric.jar", false);
+        downloadFile(FABRIC_JSON_URL, path + "/versions/fabric-loader/fabric.json", false);
+        downloadFile(MINECRAFT_URL, path + "/versions/1.21.4/1.21.4.jar", false);
+        downloadFile(MINECRAFT_JSON_URL, path + "/versions/1.21.4/1.21.4.json", false);
 
         downloadAssets(path);
     }
@@ -39,12 +39,16 @@ public class Downloader {
      * @param fileUrl : Url du fichier à télécharger;
      * @param savePath : Cheminoù stocker le fichier;
      * **/
-    public static void downloadFile(String fileUrl, String savePath) {
+    public static void downloadFile(String fileUrl, String savePath, boolean force) {
         File file = new File(savePath);
 
         // Pour éviter de télécharger plusieurs fois (long et inutile)
-        if (file.exists()) {
-            return;
+        if (!force) {
+            if (file.exists()) { // lazy comparaison a pas l'air de marcher sinon
+                System.out.println("✓ Le fichier existe déjà, on passe au suivant...");
+                return;
+            }
+
         }
 
         try {
@@ -56,20 +60,25 @@ public class Downloader {
             // crée le dossier parent si il n'existe pas
             if (!parentDir.exists()) {
                 parentDir.mkdirs();
+                System.out.println("✓ Création du répertoire : " + parentDir.getPath());
             }
 
             try (ReadableByteChannel channel = Channels.newChannel(url.openStream());
                  FileOutputStream fos = new FileOutputStream(savePath)) {
-                fos.getChannel().transferFrom(channel, 0, Long.MAX_VALUE);
+                    fos.getChannel().transferFrom(channel, 0, Long.MAX_VALUE);
+                System.out.println("✓ Le fichier a bien été téléchargé ! " + file.getPath());
             }
 
-        } catch (IOException _) {
+        } catch (IOException e) {
+            System.out.println("⤫ Erreur lors du téléchargement de " + fileUrl + " : " + e.getMessage());
         }
     }
 
     public static void downloadAssets(String path)  {
         String versionJsonPath = path + "/versions/1.21.4/1.21.4.json";
         try {
+
+            System.out.println("⌛ Téléchargement des assets ...");
 
             String jsonContent = new String(Files.readAllBytes(Paths.get(versionJsonPath)));
             JSONObject versionJson = new JSONObject(jsonContent);
@@ -79,14 +88,14 @@ public class Downloader {
             String assetIndexId = assetIndex.getString("id");
 
             String assetIndexPath = path + "/assets/indexes/" + assetIndexId + ".json";
-            downloadFile(assetIndexUrl, assetIndexPath);
+            downloadFile(assetIndexUrl, assetIndexPath, false);
 
 
             // Télécharger l'asset index dans un répertoire temporaire
             String assetsDir = path + "/assets/indexes";
             new File(assetsDir).mkdirs();
             String assetIndexFilePath = assetsDir + "/" + assetIndexId + ".json";
-            downloadFile(assetIndexUrl, assetIndexFilePath);
+            downloadFile(assetIndexUrl, assetIndexFilePath, false);
 
             // Lire et parser l'asset index
             String assetIndexContent = new String(Files.readAllBytes(Paths.get(assetIndexFilePath)));
@@ -114,9 +123,10 @@ public class Downloader {
                 }
 
                 // Téléchargement de l'asset
-                downloadFile(assetDownloadUrl, assetLocalPath);
+                downloadFile(assetDownloadUrl, assetLocalPath, false);
             }
         } catch (Exception _) {
+            System.out.println("⤫ Erreur lors du téléchargement des assets");
         }
     }
 

@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SMP2I [jar]">
+    <output-path>$PROJECT_DIR$/out/artifacts/SMP2I__jar_</output-path>
+    <root id="archive" name="sncf.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="sncf.main" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.10.2/f1f8fe97bd58e85569205f071274d459c2c4f8cd/junit-jupiter-engine-5.10.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.3.0/152ea56b3a72f655d4fd677fc0ef2596c3dd5e6e/opentest4j-1.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.10.2/d53bb4e0ce7f211a498705783440614bfaf0df2e/junit-platform-engine-1.10.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.json/json/20240303/ebb88e8fb5122b7506d5cf1d69f1ccdb790d22a/json-20240303.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.10.2/fb55d6e2bce173f35fd28422e7975539621055ef/junit-jupiter-api-5.10.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.10.2/3197154a1f0c88da46c47a9ca27611ac7ec5d797/junit-platform-commons-1.10.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

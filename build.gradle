@@ -4,11 +4,10 @@ plugins {
     id 'org.javamodularity.moduleplugin' version '1.8.12'
     id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.jlink' version '2.25.0'
-    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group 'mp2i.sncf'
-version '1.0-BETA'
+version '1.0-CLI'
 
 jar {
     manifest {
@@ -36,19 +35,11 @@ application {
     mainClass = 'mp2i.sncf.Main'
 }
 
-javafx {
-    version = '17.0.14'
-    modules = ['javafx.controls', 'javafx.fxml']
-}
-
 dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     implementation("org.json:json:20240303")
-    implementation 'org.openjfx:javafx-controls:21'
-    implementation 'org.openjfx:javafx-fxml:21'
-    implementation 'org.openjfx:javafx-graphics:21'
 
 }
 
@@ -66,13 +57,4 @@ jlink {
 
 jlinkZip {
     group = 'distribution'
-}
-
-shadowJar {
-    archiveBaseName.set("sncf")
-    archiveClassifier.set("")
-    archiveVersion.set("1.0-BETA")
-    manifest {
-        attributes 'Main-Class': 'mp2i.sncf.Main'
-    }
 }

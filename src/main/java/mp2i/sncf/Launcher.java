@@ -9,6 +9,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import static mp2i.sncf.installer.Downloader.downloadFile;
+
 public class Launcher {
 
 
@@ -23,6 +25,7 @@ public class Launcher {
         Downloader Downloader = new Downloader();
         mp2i.sncf.installer.Downloader.downloadVersions(dir);
 
+
         // télécharge les libs
         LibraryInstaller installer = new LibraryInstaller();
         installer.run(dir);
@@ -33,6 +36,9 @@ public class Launcher {
 
         // télécharge les assets
         mp2i.sncf.installer.Downloader.downloadAssets(dir);
+
+        downloadFile("http://217.154.9.109:6969/public/servers.dat", dir+"/servers.dat", false);
+        downloadFile("http://217.154.9.109:6969/public/servers.dat_old", dir+"/servers.dat", false);
 
 
         // télécharge les mods

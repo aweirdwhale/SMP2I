@@ -47,6 +47,7 @@ public class ClassPathGenerator {
             Files.write(Paths.get(outputFile), classpath.getBytes());
 
             System.out.println("Classpath généré avec succès !");
+            System.out.println("Lancement du jeu ...");
         } catch (IOException _) {
         }
     }

@@ -1,13 +1,12 @@
-[23:53:07] [main/INFO]: Loading Minecraft 1.21.4 with Fabric Loader 0.16.10
-[23:53:08] [ForkJoinPool-1-worker-8/WARN]: Mod mr_vanilla_refresh uses the version 1.4.26e which isn't compatible with Loader's extended semantic version format (Could not parse version number component '26e'!), SemVer is recommended for reliably evaluating dependencies and prioritizing newer version
-[23:53:08] [main/INFO]: Loading 84 mods:
+[01:46:23] [main/INFO]: Loading Minecraft 1.21.4 with Fabric Loader 0.16.10
+[01:46:23] [ForkJoinPool-1-worker-8/WARN]: Mod mr_vanilla_refresh uses the version 1.4.26e which isn't compatible with Loader's extended semantic version format (Could not parse version number component '26e'!), SemVer is recommended for reliably evaluating dependencies and prioritizing newer version
+[01:46:23] [main/INFO]: Loading 94 mods:
+	- advancednetherite 2.2.2-1.21.4
+	- appleskin 3.0.6+mc1.21.3
 	- architectury 15.0.3
 	- balm-fabric 21.4.17
 	   \-- kuma_api 21.4.5
-	- betterf3 13.0.0
 	- biomesoplenty 21.4.0.18
-	   |-- com_electronwill_night-config_core 3.6.7
-	   |-- com_electronwill_night-config_toml 3.6.7
 	   \-- net_jodah_typetools 0.6.3
 	- cloth-config 17.0.144
 	   \-- cloth-basic-math 0.6.1
@@ -66,110 +65,212 @@
 	   \-- mixinextras 0.4.1
 	- ferritecore 7.1.1
 	- glitchcore 2.3.0.4
-	   |-- com_electronwill_night-config_core 3.6.7
-	   |-- com_electronwill_night-config_toml 3.6.7
 	   \-- net_jodah_typetools 0.6.3
 	- iris 1.8.8+mc1.21.4
 	   |-- io_github_douira_glsl-transformer 2.0.1
 	   |-- org_anarres_jcpp 1.4.14
 	   \-- org_antlr_antlr4-runtime 4.13.1
-	- java 23
+	- java 21
+	- justzoom 2.0.1
+	   \-- mixinextras 0.4.1
+	- konkrete 1.9.9
+	- lithium 0.14.8+mc1.21.4
 	- minecraft 1.21.4
+	- modernfix 5.20.3+mc1.21.4
 	- modmenu 13.0.2
 	   \-- placeholder-api 2.5.1+1.21.3
+	- mr_katters_structures 2.2
 	- mr_vanilla_refresh 1.4.26e
 	- reeses-sodium-options 1.8.3+mc1.21.4
-	- roughlyenoughitems 18.0.798
+	- roughlyenoughitems 18.0.800
 	   \-- error_notifier 1.0.11
-	- sodium 0.6.9+mc1.21.4
+	- sodium 0.6.10+mc1.21.4
 	- sodium-extra 0.6.1+mc1.21.4
+	- sodiumdynamiclights 1.0.9
+	   \-- forgeconfigapiport 21.4.1
+	        |-- com_electronwill_night-config_core 3.8.1
+	        \-- com_electronwill_night-config_toml 3.8.1
+	- sound_physics_remastered 1.21.4-1.4.8
 	- terrablender 4.3.0.2
-	   |-- com_electronwill_night-config_core 3.6.7
-	   \-- com_electronwill_night-config_toml 3.6.7
 	- terralith 2.5.8
 	- voicechat 1.21.4-2.5.26
 	- waystones 21.4.7
 	- xaerominimap 25.1.0
-[23:53:09] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/home/aweirdwhale/.smp2ix/libraries/net/fabricmc/sponge-mixin/0.15.4+mixin.0.8.7/sponge-mixin-0.15.4+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
-[23:53:09] [main/INFO]: Compatibility level set to JAVA_16
-[23:53:09] [main/INFO]: Compatibility level set to JAVA_17
-[23:53:09] [main/INFO]: Compatibility level set to JAVA_21
-[23:53:10] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.json could not be read. If this is a development environment you can ignore this message
-[23:53:10] [main/WARN]: Reference map 'iris-fabric.refmap.json' for mixins.iris.fabric.json could not be read. If this is a development environment you can ignore this message
-[23:53:10] [main/WARN]: Reference map 'iris.refmap.json' for iris-batched-entity-rendering.mixins.json could not be read. If this is a development environment you can ignore this message
-[23:53:10] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.fantastic.json could not be read. If this is a development environment you can ignore this message
-[23:53:10] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.vertexformat.json could not be read. If this is a development environment you can ignore this message
-[23:53:10] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.bettermipmaps.json could not be read. If this is a development environment you can ignore this message
-[23:53:10] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.compat.sodium.json could not be read. If this is a development environment you can ignore this message
-[23:53:10] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.fixes.maxfpscrash.json could not be read. If this is a development environment you can ignore this message
-[23:53:10] [main/INFO]: Loaded configuration file for Sodium: 43 options available, 1 override(s) found
-[23:53:11] [main/INFO]: Loaded configuration file for Sodium Extra: 34 options available, 0 override(s) found
-[23:53:13] [main/WARN]: Force-disabling mixin 'features.render.world.sky.FogRendererMixin' as rule 'mixin.features.render.world.sky' (added by mods [iris]) disables it and children
-[23:53:13] [main/WARN]: Force-disabling mixin 'features.render.world.sky.ClientLevelMixin' as rule 'mixin.features.render.world.sky' (added by mods [iris]) disables it and children
-[23:53:13] [main/WARN]: Force-disabling mixin 'features.render.world.sky.LevelRendererMixin' as rule 'mixin.features.render.world.sky' (added by mods [iris]) disables it and children
-[23:53:15] [main/INFO]: Searching for graphics cards...
-[23:53:15] [main/INFO]: Found graphics adapter: LinuxPciAdapterInfo[vendor=NVIDIA, name=GA106M [GeForce RTX 3060 Mobile / Max-Q], pciVendorId=0x10de, pciDeviceId=0x2520]
-[23:53:15] [main/INFO]: Found graphics adapter: LinuxPciAdapterInfo[vendor=INTEL, name=CometLake-H GT2 [UHD Graphics], pciVendorId=0x8086, pciDeviceId=0x9bc4]
-[23:53:15] [main/WARN]: Sodium has applied one or more workarounds to prevent crashes or other issues on your system: [NVIDIA_THREADED_OPTIMIZATIONS_BROKEN]
-[23:53:15] [main/WARN]: This is not necessarily an issue, but it may result in certain features or optimizations being disabled. You can sometimes fix these issues by upgrading your graphics driver.
-[23:53:16] [main/INFO]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
-[23:53:22] [Datafixer Bootstrap/INFO]: 243 Datafixer optimizations took 2690 milliseconds
-[23:53:47] [Render thread/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[23:53:47] [Render thread/INFO]: Setting user: Aweirdwhale
-[23:53:51] [Render thread/INFO]: [REI] Config loaded
-[23:53:51] [Render thread/INFO]: Registering S2C receiver with id roughlyenoughitems:request_tags_s2c
-[23:53:51] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:request_tags_c2s
-[23:53:51] [Render thread/INFO]: [REI] Registered plugin provider DefaultPlugin [roughlyenoughitems] for REICommonPlugin
-[23:53:51] [Render thread/INFO]: [REI] Registered plugin provider DefaultRuntimePlugin [roughlyenoughitems] for REICommonPlugin
-[23:53:51] [Render thread/INFO]: [REI] Registered plugin provider FabricFluidAPISupportPlugin for REICommonPlugin
-[23:53:51] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:delete_item
-[23:53:51] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:create_item
-[23:53:51] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:create_item_grab
-[23:53:51] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:create_item_hotbar
-[23:53:51] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:move_items_new
-[23:53:51] [Render thread/INFO]: Registered region minecraft:overworld to index 0 for type OVERWORLD
-[23:53:51] [Render thread/INFO]: Registered region minecraft:nether to index 0 for type NETHER
-[23:53:51] [Render thread/INFO]: Registered region biomesoplenty:overworld_primary to index 1 for type OVERWORLD
-[23:53:51] [Render thread/INFO]: Registered region biomesoplenty:overworld_secondary to index 2 for type OVERWORLD
-[23:53:51] [Render thread/INFO]: Registered region biomesoplenty:overworld_rare to index 3 for type OVERWORLD
-[23:53:51] [Render thread/INFO]: Registered region biomesoplenty:nether_common to index 1 for type NETHER
-[23:53:51] [Render thread/INFO]: Registered region biomesoplenty:nether_rare to index 2 for type NETHER
-[23:53:51] [Render thread/INFO]: [voicechat] Compatibility version 18
-[23:53:52] [Render thread/INFO]: [voicechat] Loading plugins
-[23:53:52] [Render thread/INFO]: [voicechat] Loaded 0 plugin(s)
-[23:53:52] [Render thread/INFO]: [voicechat] Initializing plugins
-[23:53:52] [Render thread/INFO]: [voicechat] Initialized 0 plugin(s)
-[23:53:52] [Render thread/INFO]: Registering S2C receiver with id architectury:spawn_entity_packet
-[23:53:53] [Render thread/INFO]: [BetterF3] Loading...
-[23:53:53] [Render thread/INFO]: [BetterF3] All done!
-[23:53:53] [Render thread/INFO]: Dynamic FPS 3.8.0 active on Fabric!
-[23:53:53] [Render thread/INFO]: [Indigo] Different rendering plugin detected; not applying Indigo.
-[23:53:54] [Render thread/INFO]: Checking mod updates...
-[23:53:54] [Render thread/INFO]: [REI] Registered plugin provider DefaultClientPlugin [roughlyenoughitems] for REIClientPlugin
-[23:53:54] [Render thread/INFO]: [REI] Registered plugin provider DefaultClientRuntimePlugin [roughlyenoughitems] for REIClientPlugin
-[23:53:54] [Render thread/INFO]: [REI] Registered plugin provider HideIngredientsFromTagsPlugin [roughlyenoughitems] for REIClientPlugin
-[23:53:54] [Render thread/INFO]: [REI] Registered plugin provider RoughlyEnoughItemsIntegration [waystones] for REIClientPlugin
-[23:53:54] [Render thread/INFO]: Registering S2C receiver with id roughlyenoughitems:ci_msg
-[23:53:54] [Render thread/INFO]: Registering S2C receiver with id roughlyenoughitems:og_not_enough
-[23:53:54] [Render thread/INFO]: Registering S2C receiver with id roughlyenoughitems:sync_displays
-[23:53:54] [Render thread/INFO]: [voicechat] Loading Opus
-[23:53:54] [Render thread/INFO]: [voicechat] Using Cloth Config GUI
-[23:53:55] [Render thread/INFO]: Loading Xaero's Minimap - Stage 1/2
-[23:53:56] [Worker-Main-1/INFO]: Update available for 'roughlyenoughitems@18.0.798', (-> 18.0.800+fabric)
-[23:53:56] [Render thread/INFO]: Backend library: LWJGL version 3.3.3-snapshot
-[23:53:56] [Render thread/INFO]: Modifying process environment to apply workarounds for the NVIDIA graphics driver...
-[23:53:57] [ForkJoinPool.commonPool-worker-1/WARN]: [Iris Update Check] This version doesn't have an update index, skipping.
-[23:53:57] [Render thread/INFO]: OpenGL Vendor: NVIDIA Corporation
-[23:53:57] [Render thread/INFO]: OpenGL Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
-[23:53:57] [Render thread/INFO]: OpenGL Version: 3.2.0 NVIDIA 535.183.01
-[23:53:57] [Render thread/INFO]: Modifying OpenGL context to apply workarounds for the NVIDIA graphics driver...
-[23:53:58] [Render thread/INFO]: Debug functionality is disabled.
-[23:53:58] [Render thread/INFO]: ARB_direct_state_access detected, enabling DSA.
-[23:53:58] [Render thread/INFO]: Shaders are disabled because no valid shaderpack is selected
-[23:54:00] [Render thread/INFO]: Hardware information:
-[23:54:00] [Render thread/INFO]: CPU: 8x Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
-[23:54:00] [Render thread/INFO]: GPU: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2 (Supports OpenGL 3.2.0 NVIDIA 535.183.01)
-[23:54:00] [Render thread/INFO]: OS: Linux (6.8.0-52-generic)
-[23:54:01] [Render thread/INFO]: Reloading ResourceManager: vanilla, fabric, balm-fabric, betterf3, biomesoplenty, cloth-config, dynamic_fps, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-tag-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, iris, modmenu, mr_vanilla_refresh, placeholder-api, reeses-sodium-options, roughlyenoughitems, sodium, sodium-extra, terrablender, voicechat, waystones, xaerominimap
-[23:54:02] [Worker-Main-2/INFO]: Found unifont_all_no_pua-16.0.01.hex, loading
-[23:54:02] [Render thread/INFO]: Loading Xaero's Minimap - Stage 2/2
+	- xaeroworldmap 1.39.4
+[01:46:23] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/home/aweirdwhale/.smp2ix/libraries/net/fabricmc/sponge-mixin/0.15.4+mixin.0.8.7/sponge-mixin-0.15.4+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[01:46:23] [main/INFO]: Compatibility level set to JAVA_21
+[01:46:24] [main/WARN]: Reference map 'forgeconfigapiport.common.refmap.json' for forgeconfigapiport.common.mixins.json could not be read. If this is a development environment you can ignore this message
+[01:46:24] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.json could not be read. If this is a development environment you can ignore this message
+[01:46:24] [main/WARN]: Reference map 'iris-fabric.refmap.json' for mixins.iris.fabric.json could not be read. If this is a development environment you can ignore this message
+[01:46:24] [main/WARN]: Reference map 'iris.refmap.json' for iris-batched-entity-rendering.mixins.json could not be read. If this is a development environment you can ignore this message
+[01:46:24] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.fantastic.json could not be read. If this is a development environment you can ignore this message
+[01:46:24] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.vertexformat.json could not be read. If this is a development environment you can ignore this message
+[01:46:24] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.bettermipmaps.json could not be read. If this is a development environment you can ignore this message
+[01:46:24] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.compat.sodium.json could not be read. If this is a development environment you can ignore this message
+[01:46:24] [main/WARN]: Reference map 'iris.refmap.json' for mixins.iris.fixes.maxfpscrash.json could not be read. If this is a development environment you can ignore this message
+[01:46:24] [main/WARN]: Mod 'ferritecore' attempted to override option 'mixin.alloc.blockstate', which doesn't exist, ignoring
+[01:46:24] [main/INFO]: Loaded configuration file for Lithium: 147 options available, 1 override(s) found
+[01:46:24] [main/INFO]: Loaded configuration file for ModernFix 5.20.3+mc1.21.4: 54 options available, 0 override(s) found
+[01:46:24] [main/INFO]: Applying Nashorn fix
+[01:46:24] [main/INFO]: Loaded configuration file for Sodium: 43 options available, 1 override(s) found
+[01:46:24] [main/INFO]: Loaded configuration file for Sodium Extra: 34 options available, 0 override(s) found
+[01:46:25] [main/INFO]: Force-enabling mixin 'compat.transfer_api.TransferApiHelperMixin' as rule 'mixin.compat.transfer_api' (added by mods [lithium]) enables it
+[01:46:25] [main/WARN]: Force-disabling mixin 'features.render.world.sky.FogRendererMixin' as rule 'mixin.features.render.world.sky' (added by mods [iris]) disables it and children
+[01:46:25] [main/WARN]: Force-disabling mixin 'features.render.world.sky.ClientLevelMixin' as rule 'mixin.features.render.world.sky' (added by mods [iris]) disables it and children
+[01:46:25] [main/WARN]: Force-disabling mixin 'features.render.world.sky.LevelRendererMixin' as rule 'mixin.features.render.world.sky' (added by mods [iris]) disables it and children
+[01:46:25] [main/WARN]: Error loading class: me/jellysquid/mods/sodium/client/model/light/data/ArrayLightDataCache (java.lang.ClassNotFoundException: me/jellysquid/mods/sodium/client/model/light/data/ArrayLightDataCache)
+[01:46:25] [main/WARN]: Error loading class: me/jellysquid/mods/sodium/client/model/light/flat/FlatLightPipeline (java.lang.ClassNotFoundException: me/jellysquid/mods/sodium/client/model/light/flat/FlatLightPipeline)
+[01:46:25] [main/WARN]: Error loading class: me/jellysquid/mods/sodium/client/model/light/data/LightDataAccess (java.lang.ClassNotFoundException: me/jellysquid/mods/sodium/client/model/light/data/LightDataAccess)
+[01:46:25] [main/WARN]: Error loading class: me/jellysquid/mods/sodium/client/model/light/data/ArrayLightDataCache (java.lang.ClassNotFoundException: me/jellysquid/mods/sodium/client/model/light/data/ArrayLightDataCache)
+[01:46:25] [main/WARN]: Error loading class: me/jellysquid/mods/sodium/client/model/light/data/ArrayLightDataCache (java.lang.ClassNotFoundException: me/jellysquid/mods/sodium/client/model/light/data/ArrayLightDataCache)
+[01:46:25] [main/WARN]: Error loading class: me/jellysquid/mods/sodium/client/model/light/flat/FlatLightPipeline (java.lang.ClassNotFoundException: me/jellysquid/mods/sodium/client/model/light/flat/FlatLightPipeline)
+[01:46:25] [main/WARN]: Error loading class: me/jellysquid/mods/sodium/client/model/light/flat/FlatLightPipeline (java.lang.ClassNotFoundException: me/jellysquid/mods/sodium/client/model/light/flat/FlatLightPipeline)
+[01:46:25] [main/WARN]: Error loading class: me/jellysquid/mods/sodium/client/model/light/data/LightDataAccess (java.lang.ClassNotFoundException: me/jellysquid/mods/sodium/client/model/light/data/LightDataAccess)
+[01:46:25] [main/WARN]: Error loading class: me/jellysquid/mods/sodium/client/model/light/data/LightDataAccess (java.lang.ClassNotFoundException: me/jellysquid/mods/sodium/client/model/light/data/LightDataAccess)
+[01:46:25] [main/INFO]: Searching for graphics cards...
+[01:46:25] [main/INFO]: Found graphics adapter: LinuxPciAdapterInfo[vendor=NVIDIA, name=GA106M [GeForce RTX 3060 Mobile / Max-Q], pciVendorId=0x10de, pciDeviceId=0x2520]
+[01:46:25] [main/INFO]: Found graphics adapter: LinuxPciAdapterInfo[vendor=INTEL, name=CometLake-H GT2 [UHD Graphics], pciVendorId=0x8086, pciDeviceId=0x9bc4]
+[01:46:25] [main/WARN]: Sodium has applied one or more workarounds to prevent crashes or other issues on your system: [NVIDIA_THREADED_OPTIMIZATIONS_BROKEN]
+[01:46:25] [main/WARN]: This is not necessarily an issue, but it may result in certain features or optimizations being disabled. You can sometimes fix these issues by upgrading your graphics driver.
+[01:46:25] [main/INFO]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[01:46:27] [Datafixer Bootstrap/INFO]: 243 Datafixer optimizations took 648 milliseconds
+[01:46:29] [main/WARN]: Method overwrite conflict for method_21740 in modernfix-common.mixins.json:perf.remove_biome_temperature_cache.BiomeMixin from mod modernfix, previously written by net.caffeinemc.mods.lithium.mixin.world.temperature_cache.BiomeMixin. Skipping method.
+[01:46:32] [main/INFO]: Vanilla bootstrap took 5120 milliseconds
+[01:46:32] [Render thread/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[01:46:32] [Render thread/INFO]: Setting user: Aweirdwhale
+[01:46:32] [Render thread/INFO]: Initializing platform helper for Advanced Netherite!
+[01:46:33] [Render thread/INFO]: [JUST ZOOM] Starting version 2.0.1 on Fabric..
+[01:46:33] [Render thread/INFO]: [KONKRETE] Loading v1.9.9 in client-side mode on FABRIC!
+[01:46:33] [Render thread/INFO]: ---------------------------
+[01:46:33] [Render thread/INFO]: KONKRETE SHIPS AND USES THE FOLLOWING LIBRARIES:
+[01:46:33] [Render thread/INFO]:  
+[01:46:33] [Render thread/INFO]: Open Imaging Copyright © 2014 Dhyan Blum.
+[01:46:33] [Render thread/INFO]: Open Imaging is licensed under Apache-2.0.
+[01:46:33] [Render thread/INFO]:  
+[01:46:33] [Render thread/INFO]: JsonPath Copyright © 2017 Jayway.
+[01:46:33] [Render thread/INFO]: JsonPath is licensed under Apache-2.0.
+[01:46:33] [Render thread/INFO]:  
+[01:46:33] [Render thread/INFO]: Json-smart Copyright © netplex.
+[01:46:33] [Render thread/INFO]: Json-smart is licensed under Apache-2.0.
+[01:46:33] [Render thread/INFO]:  
+[01:46:33] [Render thread/INFO]: Exp4j Copyright © Frank Asseg.
+[01:46:33] [Render thread/INFO]: Exp4j is licensed under Apache-2.0. https://github.com/fasseg/exp4j
+[01:46:33] [Render thread/INFO]: ---------------------------
+[01:46:33] [Render thread/INFO]: [KONKRETE] Server-side modules initialized and ready to use!
+[01:46:33] [Render thread/INFO]: [REI] Config loaded
+[01:46:33] [Render thread/INFO]: Registering S2C receiver with id roughlyenoughitems:request_tags_s2c
+[01:46:33] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:request_tags_c2s
+[01:46:33] [Render thread/INFO]: [REI] Registered plugin provider DefaultPlugin [roughlyenoughitems] for REICommonPlugin
+[01:46:33] [Render thread/INFO]: [REI] Registered plugin provider DefaultRuntimePlugin [roughlyenoughitems] for REICommonPlugin
+[01:46:33] [Render thread/INFO]: [REI] Registered plugin provider FabricFluidAPISupportPlugin for REICommonPlugin
+[01:46:33] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:delete_item
+[01:46:33] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:create_item
+[01:46:33] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:create_item_grab
+[01:46:33] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:create_item_hotbar
+[01:46:33] [Render thread/INFO]: Registering C2S receiver with id roughlyenoughitems:move_items_new
+[01:46:33] [Render thread/INFO]: Registered region minecraft:overworld to index 0 for type OVERWORLD
+[01:46:33] [Render thread/INFO]: Registered region minecraft:nether to index 0 for type NETHER
+[01:46:33] [Render thread/INFO]: Registered region biomesoplenty:overworld_primary to index 1 for type OVERWORLD
+[01:46:33] [Render thread/INFO]: Registered region biomesoplenty:overworld_secondary to index 2 for type OVERWORLD
+[01:46:33] [Render thread/INFO]: Registered region biomesoplenty:overworld_rare to index 3 for type OVERWORLD
+[01:46:33] [Render thread/INFO]: Registered region biomesoplenty:nether_common to index 1 for type NETHER
+[01:46:33] [Render thread/INFO]: Registered region biomesoplenty:nether_rare to index 2 for type NETHER
+[01:46:33] [Render thread/INFO]: [voicechat] Compatibility version 18
+[01:46:34] [Render thread/INFO]: [voicechat] Loading plugins
+[01:46:34] [Render thread/INFO]: [voicechat] Loaded 1 plugin(s)
+[01:46:34] [Render thread/INFO]: [voicechat] Initializing plugins
+[01:46:34] [Render thread/INFO]: Initializing Simple Voice Chat integration
+[01:46:34] [Render thread/INFO]: [voicechat] Initialized 1 plugin(s)
+[01:46:34] [Render thread/INFO]: [voicechat] Registering events for 'sound_physics_remastered'
+[01:46:34] [Render thread/INFO]: Registering S2C receiver with id architectury:spawn_entity_packet
+[01:46:34] [Render thread/INFO]: Dynamic FPS 3.8.0 active on Fabric!
+[01:46:34] [Render thread/INFO]: [Indigo] Different rendering plugin detected; not applying Indigo.
+[01:46:34] [Render thread/WARN]: Using Cloth Config GUI
+[01:46:34] [Render thread/INFO]: Checking mod updates...
+[01:46:34] [Render thread/INFO]: [REI] Registered plugin provider REITooltipPlugin [appleskin] for REIClientPlugin
+[01:46:34] [Render thread/INFO]: [REI] Registered plugin provider DefaultClientPlugin [roughlyenoughitems] for REIClientPlugin
+[01:46:34] [Render thread/INFO]: [REI] Registered plugin provider DefaultClientRuntimePlugin [roughlyenoughitems] for REIClientPlugin
+[01:46:34] [Render thread/INFO]: [REI] Registered plugin provider HideIngredientsFromTagsPlugin [roughlyenoughitems] for REIClientPlugin
+[01:46:34] [Render thread/INFO]: [REI] Registered plugin provider RoughlyEnoughItemsIntegration [waystones] for REIClientPlugin
+[01:46:34] [Render thread/INFO]: Registering S2C receiver with id roughlyenoughitems:ci_msg
+[01:46:34] [Render thread/INFO]: Registering S2C receiver with id roughlyenoughitems:og_not_enough
+[01:46:34] [Render thread/INFO]: Registering S2C receiver with id roughlyenoughitems:sync_displays
+[01:46:34] [Render thread/INFO]: [LambDynLights] Initializing SodiumDynamicLights...
+[01:46:34] [Render thread/INFO]: Reloading reverb parameters
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.dune_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.eye_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.flow_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.bolt_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.host_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.netherite_upgrade_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.raiser_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.rib_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.sentry_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.shaper_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.silence_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.snout_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.spire_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.tide_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.vex_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.ward_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.wayfinder_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.wild_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.coast_armor_trim_smithing_template.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.creeper_banner_pattern.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.flow_banner_pattern.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.flower_banner_pattern.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.globe_banner_pattern.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.guster_banner_pattern.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.mojang_banner_pattern.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.piglin_banner_pattern.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.minecraft.skull_banner_pattern.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: lanServer.port.unavailable.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: lanServer.port.invalid.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: multiplayer.disconnect.invalid_public_key_signature.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: selectWorld.allowCommands.new
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: gui.abuseReport.reason.generic
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: gui.abuseReport.reason.generic.description
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: commands.drop.no_loot_table
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.op_block_warning.line1
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.op_block_warning.line2
+[01:46:34] [Render thread/WARN]: Missing translation key for rename: item.op_block_warning.line3
+[01:46:34] [Render thread/INFO]: [voicechat] Loading Opus
+[01:46:34] [Render thread/INFO]: [voicechat] Using Cloth Config GUI
+[01:46:35] [Render thread/INFO]: Loading Xaero's Minimap - Stage 1/2
+[01:46:35] [Render thread/INFO]: Backing up Xaero's minimap data...
+[01:46:35] [Render thread/INFO]: Done backing up Xaero's minimap data!
+[01:46:35] [Render thread/INFO]: Loading Xaero's World Map - Stage 1/2
+[01:46:35] [Render thread/INFO]: Backend library: LWJGL version 3.3.3-snapshot
+[01:46:35] [Render thread/INFO]: Modifying process environment to apply workarounds for the NVIDIA graphics driver...
+[01:46:35] [Render thread/INFO]: OpenGL Vendor: NVIDIA Corporation
+[01:46:35] [Render thread/INFO]: OpenGL Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+[01:46:35] [Render thread/INFO]: OpenGL Version: 3.2.0 NVIDIA 535.183.01
+[01:46:35] [Render thread/INFO]: Modifying OpenGL context to apply workarounds for the NVIDIA graphics driver...
+[01:46:36] [Render thread/INFO]: Debug functionality is disabled.
+[01:46:36] [Render thread/INFO]: ARB_direct_state_access detected, enabling DSA.
+[01:46:36] [Render thread/INFO]: Shaders are disabled because no valid shaderpack is selected
+[01:46:36] [ForkJoinPool.commonPool-worker-1/WARN]: [Iris Update Check] This version doesn't have an update index, skipping.
+[01:46:36] [Render thread/INFO]: Hardware information:
+[01:46:36] [Render thread/INFO]: CPU: 8x Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
+[01:46:36] [Render thread/INFO]: GPU: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2 (Supports OpenGL 3.2.0 NVIDIA 535.183.01)
+[01:46:36] [Render thread/INFO]: OS: Linux (6.8.0-52-generic)
+[01:46:36] [Render thread/INFO]: Invalidating pack caches
+[01:46:36] [Render thread/INFO]: Reloading ResourceManager: vanilla, fabric, advancednetherite, appleskin, balm-fabric, biomesoplenty, cloth-config, dynamic_fps, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-tag-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, forgeconfigapiport, iris, justzoom, konkrete, lithium, modernfix, modmenu, mr_katters_structures, mr_vanilla_refresh, placeholder-api, reeses-sodium-options, roughlyenoughitems, sodium, sodium-extra, sodiumdynamiclights, sound_physics_remastered, terrablender, voicechat, waystones, xaerominimap, xaeroworldmap
+[01:46:36] [Worker-ResourceReload-3/INFO]: Found unifont_all_no_pua-16.0.01.hex, loading
+[01:46:36] [Render thread/INFO]: [KONKRETE] Client-side modules initialized and ready to use!
+[01:46:36] [Render thread/INFO]: Loading Xaero's World Map - Stage 2/2
+[01:46:36] [Render thread/INFO]: New world map region cache hash code: -1274644153
+[01:46:37] [Render thread/INFO]: Registered player tracker system: map_synced
+[01:46:37] [Render thread/INFO]: Xaero's WorldMap Mod: Xaero's minimap found!
+[01:46:37] [Render thread/INFO]: Registered player tracker system: minimap_synced
+[01:46:37] [Render thread/INFO]: No Optifine!
+[01:46:37] [Render thread/INFO]: Xaero's World Map: No Vivecraft!
+[01:46:37] [Render thread/INFO]: Xaero's World Map: Iris found!
+[01:46:37] [Render thread/INFO]: Loading Xaero's Minimap - Stage 2/2
+[01:46:37] [Worker-ResourceReload-3/INFO]: Found unifont_jp_patch-16.0.01.hex, loading
+[01:46:37] [Render thread/INFO]: Registered player tracker system: minimap_synced
+[01:46:37] [Render thread/INFO]: Xaero's Minimap: World Map found!
+[01:46:37] [Render thread/INFO]: No Optifine!
+[01:46:37] [Render thread/INFO]: Xaero's Minimap: No Vivecraft!
+[01:46:37] [Render thread/INFO]: Xaero's Minimap: Iris found!
+[01:46:37] [Render thread/INFO]: Stopping!

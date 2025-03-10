@@ -50,7 +50,7 @@ public class LibraryInstaller {
             downloadLibrary(urlPath[0], urlPath[1], path);
         }
 
-        System.out.println("✅ Téléchargement terminé !");
+        System.out.println("✔ Téléchargement terminé !");
     }
 
     /**
@@ -164,7 +164,7 @@ public class LibraryInstaller {
             if (file.delete()) {
                 System.out.println("✔ Fichier supprimé avec succès !");
             } else {
-                System.out.println("❌ Impossible de supprimer le fichier.");
+                System.out.println("⤫ Impossible de supprimer le fichier.");
             }
         } else {
             System.out.println("⚠ Fichier introuvable.");
@@ -175,7 +175,7 @@ public class LibraryInstaller {
     private void downloadLibrary(String urlString, String filePath, String path)  {
         File file = new File(path+LIBRARIES_DIR + filePath);
         if (file.exists()) {
-            System.out.println("✔ Fichier déjà présent : " + file.getPath() + ", passage au suivant...");
+            System.out.println("✔ Librairie déjà présente : " + file.getName());
             return;
         }
 
